@@ -3,7 +3,7 @@
 % --- Packages ---
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{setspace}
-\usepackage{enumitem}
+\usepackage{array}
 
 % --- Page setup ---
 \setstretch{1.2}
@@ -11,30 +11,47 @@
 \begin{document}
 
 % -------------------
-% Section: Project Objectives
+% Section: Stakeholder Identification
 % -------------------
-\section{Project Objectives}
-The primary objectives of the Fair and Unbiased Assessment System are:
-\begin{enumerate}
-    \item To develop a web-based system which can mark quizzes and assignments with the help of artificial intelligence and modern technologies.
-    \item To minimize human errors and biases in the grading process, making it fair and transparent.
-    \item To reduce teachers' workload and make the grading process fast and clear.
-    \item To record student performance and assessments in a database for easy tracking.
-    \item To allow faculty members to review, verify, and edit AI-generated results.
-    \item To provide transparency and academic integrity, making the education system more reliable and trustworthy.
-\end{enumerate}
+\section{Stakeholder Identification}
+
+There are many stakeholders involved in the \textbf{Fair and Unbiased Assessment System}. They are connected through different roles with this system, but every person has an important role to make the software successful.
+
+\begin{center}
+\begin{tabular}{|p{4cm}|p{4cm}|p{7cm}|}
+\hline
+\textbf{Stakeholder} & \textbf{Role} & \textbf{Relation to the System} \\
+\hline
+University Instructors & Primary users of the software; they review assessments made by AI and provide feedback. & Use the system for every assessment to check student work quickly; feedback improves grading accuracy. \\
+\hline
+Students & Receive feedback and marks fairly. & Assignments and quizzes are checked by the software without bias or mistakes. \\
+\hline
+System Administrator & Maintain and manage technical operations of the system. & Manage user accounts, secure data, update the system, and fix technical issues. \\
+\hline
+University Management & Monitor the implementation and functioning of the system. & Ensure the system follows assessment rules and works properly. \\
+\hline
+Developers & Responsible for developing the software. & Code the system, integrate AI tools, and implement functionalities. \\
+\hline
+Requirement Provider & Provide guidance and requirements updates. & Review progress and ensure system addresses all problems. \\
+\hline
+IT Department & Ensure smooth operation of the software on the university network. & Provide technical support and maintain system performance. \\
+\hline
+\end{tabular}
+\end{center}
 
 % -------------------
-% Section: Tools and Technologies
+% Section: Software Development Methodology
 % -------------------
-\section{Tools and Technologies}
+\section{Software Development Methodology}
+
+We will use the \textbf{Agile Scrum methodology} for this project because it allows iterative development and regular feedback from the Requirement Provider.
+
+\subsection*{Tentative Schedule}
 \begin{itemize}
-    \item \textbf{Programming Languages:} Python, JavaScript
-    \item \textbf{Backend Framework:} Django
-    \item \textbf{Frontend Framework:} ReactJS
-    \item \textbf{Database:} MySQL
-    \item \textbf{Design Tools:} Figma
-    \item \textbf{Version Control:} GitHub
+    \item \textbf{Weeks 1–2:} Requirement gathering and analysis with Requirement Provider.
+    \item \textbf{Weeks 3–4:} System design and prototype creation.
+    \item \textbf{Weeks 5–8:} Implementation of key modules.
+    \item \textbf{Weeks 9–10:} Testing, evaluation, and documentation.
 \end{itemize}
 
 \end{document}
