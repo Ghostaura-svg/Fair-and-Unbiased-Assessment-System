@@ -225,7 +225,6 @@ We will use the \textbf{Agile Scrum methodology} for this project because it all
 \vspace{0.5cm}
 
 % -------------------
-% -------------------
 % Section 6: Tools and Technologies
 % -------------------
 \section{Tools and Technologies}
@@ -255,8 +254,5 @@ We will use the \textbf{Agile Scrum methodology} for this project because it all
     \item [2] \href{https://www.ibm.com/cloud/learn/agile-methodology}{IBM: Agile Methodology Overview}.
     \item [3] \href{https://www.djangoproject.com/}{Django Official Documentation}.
 \end{itemize}
-
-
-
 
 \end{document}
