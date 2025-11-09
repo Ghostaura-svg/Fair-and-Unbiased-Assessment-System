@@ -54,6 +54,7 @@ The project uses **Agile Scrum methodology**, allowing iterative development and
 The project phases include Planning & Analysis, System Design, Database Design, Frontend and Backend Development, AI Integration, Testing & QA, and Deployment.
 
 ---
+changed
 
 
 ## Submission
