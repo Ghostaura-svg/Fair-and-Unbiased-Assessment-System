@@ -1,1 +1,40 @@
+\documentclass[12pt,a4paper]{article}
 
+% --- Packages ---
+\usepackage[a4paper, margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{enumitem}
+
+% --- Page setup ---
+\setstretch{1.2}
+
+\begin{document}
+
+% -------------------
+% Section: Project Objectives
+% -------------------
+\section{Project Objectives}
+The primary objectives of the Fair and Unbiased Assessment System are:
+\begin{enumerate}
+    \item To develop a web-based system which can mark quizzes and assignments with the help of artificial intelligence and modern technologies.
+    \item To minimize human errors and biases in the grading process, making it fair and transparent.
+    \item To reduce teachers' workload and make the grading process fast and clear.
+    \item To record student performance and assessments in a database for easy tracking.
+    \item To allow faculty members to review, verify, and edit AI-generated results.
+    \item To provide transparency and academic integrity, making the education system more reliable and trustworthy.
+\end{enumerate}
+
+% -------------------
+% Section: Tools and Technologies
+% -------------------
+\section{Tools and Technologies}
+\begin{itemize}
+    \item \textbf{Programming Languages:} Python, JavaScript
+    \item \textbf{Backend Framework:} Django
+    \item \textbf{Frontend Framework:} ReactJS
+    \item \textbf{Database:} MySQL
+    \item \textbf{Design Tools:} Figma
+    \item \textbf{Version Control:} GitHub
+\end{itemize}
+
+\end{document}
