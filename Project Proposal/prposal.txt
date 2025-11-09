@@ -2,56 +2,252 @@
 
 % --- Packages ---
 \usepackage[a4paper, margin=1in]{geometry}
+\usepackage{graphicx}
+\usepackage{fancyhdr}
 \usepackage{setspace}
+\usepackage{titlesec}
+\usepackage[hidelinks]{hyperref}
+\usepackage{enumitem}
+\usepackage{titling}
+\usepackage{pgfgantt}
+\usepackage[table]{xcolor}
+\usepackage{tabularx}
 \usepackage{array}
 
 % --- Page setup ---
 \setstretch{1.2}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{Namal University, Mianwali}
+\lhead{CSC-225: Software Engineering}
+\rfoot{\thepage}
+
+% --- Title formatting ---
+\titleformat{\section}{\bfseries\large}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection.}{0.5em}{}
 
 \begin{document}
 
 % -------------------
-% Section: Stakeholder Identification
+% Custom Title Page
 % -------------------
+\begin{titlepage}
+    \centering
+    
+    % University Logo (replace 'logo.png' with your logo file name)
+    \vspace*{0.5cm}
+    \includegraphics[width=0.2\textwidth]{Namal.png}\\[0.3cm]
+    
+    % University Name
+    {\Large\textbf{Namal University, Mianwali}}\\[0.2cm]
+    {\large Department of Computer Science}\\[1cm]
+    
+    % Horizontal line
+    \rule{\textwidth}{1.5pt}\\[0.5cm]
+    
+    % Project Title
+    {\Huge\textbf{Fair and Unbiased}}\\[0.4cm]
+    {\Huge\textbf{Assessment System}}\\[0.3cm]
+    {\Large Project Proposal Document}\\[0.2cm]
+    
+    % Horizontal line
+    \rule{\textwidth}{1.5pt}\\[2cm]
+    
+    % Course Information Table
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabularx}{0.85\textwidth}{|l|X|}
+            \hline
+            \textbf{Course Code} & CSC-225 \\
+            \hline
+            \textbf{Course Name} & Software Engineering \\
+            \hline
+        \end{tabularx}
+    \end{table}
+    
+    \vspace{0.3cm}
+    
+    % Team Members Table - NEW LAYOUT
+    \begin{table}[h]
+        \centering
+        \renewcommand{\arraystretch}{1.3}
+        \begin{tabularx}{0.85\textwidth}{|X|c|X|}
+            \hline
+            \multicolumn{3}{|c|}{\textbf{ Team Members}} \\
+            \hline
+            \textbf{Name} & \textbf{Roll No} & \textbf{Emails} \\
+            \hline
+            Abdul Rehman & 01 & bscs24f01@namal.edu.pk \\
+            \hline
+            Ahmad Ali & 02 & bscs24f02@namal.edu.pk \\
+            \hline
+            Junaid Gondal & 28 & bscs24f28@namal.edu.pk \\
+            \hline
+        \end{tabularx}
+    \end{table}
+    
+    \vfill
+    
+    % Submission Date at bottom
+    {\large \textbf{Submission Date:} November 9, 2025}
+    
+    \vspace{0.5cm}
+    
+\end{titlepage}
+
+\newpage
+\tableofcontents
+\newpage
+
+% -------------------
+% Section 1: Introduction
+% -------------------
+\section{Introduction}
+Traditional assessment methods in Pakistan's education system still mainly rely on manual grading. Some institutions are shifting toward online assessments, but rapid progress in this area has not yet been observed. The traditional method of grading and checking cause problems and unnecessary workload for faculty members. These issues can affect the accuracy and fairness of student evaluations. Therefore, advancement in the field of assessment is necessary for Pakistan's education system.
+
+A web-based tool called \textbf{"Fair and Unbiased Assessment System"} is designed to assist university instructors in evaluating students using Artificial Intelligence. The system's main goal is to ensure that each student is assessed equally, fairly, and without errors. Teachers will be able to upload student responses, which the AI model will evaluate and grade using either model answers or predefined rules.
+
+% -------------------
+% Section 2: Problem Statement
+% -------------------
+\section{Problem Statement}
+The Manual Grading and Assessment System in Pakistan causes issues. The issues in this sector are like Human errors, the person who takes the assessment may make some errors and have a different mood, one error is biasness, the faculty person has some likes and dislikes, and according to them the person gives good or bad  marks, the other error is inconsistency and delayed in the assessment, the person is busy with some moments and for quick response the person made some mistakes. 
+
+This is very challenging to ensure fairness and consistency for all students because the evaluation process is still heavily dependent on the the judgment of instructor even in the case where online submissions are available. As a result, an AI based Web application is required to help teachers to evaluate quizzes and assignments in a fair, accurate, and effective manner. This will help to decrease the problems between students and teachers.
+
+% -------------------
+% Section 3: Project Objectives
+% -------------------
+\section{Project Objectives}
+The primary objectives of the Fair and Unbiased Assessment System are:
+\begin{enumerate}
+    \item To develop a web based system which can markquizes assignment and as well as assignments with the help of artificial intelligence and modern technologies etc
+
+    \item The system aim to be minimize the human errors and biases regarding to the grading process and make the grading process very fair and transparent
+
+    \item To minimize the teacher's workload make the regarding process very fast and clear without any bias
+
+    \item Records the student performance and assessments in the data base so that  we can track them easily
+
+    \item To allow the faculty members to review, verify and  edit AI-generated results
+    \item The aim to develop the system to provide the transparency and academic integrity to make the education system more reliable and trustworthy 
+   .
+\end{enumerate}
+
+
 \section{Stakeholder Identification}
 
-There are many stakeholders involved in the \textbf{Fair and Unbiased Assessment System}. They are connected through different roles with this system, but every person has an important role to make the software successful.
-
+There are many stakeholders involved in this \textbf{Fair and Unbiased Assessment System}. They are connected through different roles with this system, but every person has its important role to make the software successful and good
 \begin{center}
 \begin{tabular}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
 \textbf{Stakeholder} & \textbf{Role} & \textbf{Relation to the System} \\
 \hline
-University Instructors & Primary users of the software; they review assessments made by AI and provide feedback. & Use the system for every assessment to check student work quickly; feedback improves grading accuracy. \\
+University Instructors & They are Primary users of software. They will review assesments of student made by AI and give response. & These user use system on every assessment to check the student work very fast.Their feedback helps improve grading accuracy. \\
 \hline
-Students & Receive feedback and marks fairly. & Assignments and quizzes are checked by the software without bias or mistakes. \\
+Students & The students  take feedback and their marks fairly . & The assignments and quizzes are checked by the software without any biasness and mistakes. \\
 \hline
-System Administrator & Maintain and manage technical operations of the system. & Manage user accounts, secure data, update the system, and fix technical issues. \\
+System Administrator & They for maintain and manage the system technical operation. & Givig Access of user accounts, make data secure, update is issues occur and fix technical issues. \\
 \hline
-University Management & Monitor the implementation and functioning of the system. & Ensure the system follows assessment rules and works properly. \\
+Uni Management & They see the implementation and monitor, how the system work. & They check and balance of implementation and see that any rule of assessment not break. \\
 \hline
-Developers & Responsible for developing the software. & Code the system, integrate AI tools, and implement functionalities. \\
+Developers& They responsible for developing the web based software. & They code the software, integrate AI tools and functionalities. \\
 \hline
-Requirement Provider & Provide guidance and requirements updates. & Review progress and ensure system addresses all problems. \\
+Requirement Provider & RP provide the proper guidance and if any changes required. & Review the progress of the system and ensures the all the problems are fixed. \\
 \hline
-IT Department & Ensure smooth operation of the software on the university network. & Provide technical support and maintain system performance. \\
+IT Department & They resposible of running software on network within the university. & Check the system runs smoothly on the network and provides technical support. \\
 \hline
 \end{tabular}
 \end{center}
 
+
 % -------------------
-% Section: Software Development Methodology
+% Section 5: Software Development Methodology
 % -------------------
 \section{Software Development Methodology}
-
-We will use the \textbf{Agile Scrum methodology} for this project because it allows iterative development and regular feedback from the Requirement Provider.
+We will use the \textbf{Agile Scrum methodology} for this project because it allows iterative development and regular feedback from our Requirement Provider.
 
 \subsection*{Tentative Schedule}
 \begin{itemize}
-    \item \textbf{Weeks 1–2:} Requirement gathering and analysis with Requirement Provider.
+    \item \textbf{Weeks 1–2:} Requirement gathering and analysis with RP.
     \item \textbf{Weeks 3–4:} System design and prototype creation.
     \item \textbf{Weeks 5–8:} Implementation of key modules.
     \item \textbf{Weeks 9–10:} Testing, evaluation, and documentation.
 \end{itemize}
+
+\subsection*{Project Timeline - Gantt Chart}
+
+\begin{center}
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=0.95cm,
+    y unit title=0.8cm,
+    y unit chart=0.9cm,
+    title height=1,
+    bar height=0.6,
+    bar label font=\normalsize\color{white},
+    bar label node/.append style={align=center}
+]{1}{12}
+    
+    % Headers
+    \gantttitle{\textbf{Fair and Unbiased Assessment System - 2025}}{12} \\
+    \gantttitle{Quarter 1}{4}
+    \gantttitle{Quarter 2}{4}
+    \gantttitle{Quarter 3}{4} \\
+    \gantttitle{Jan}{1}
+    \gantttitle{Feb}{1}
+    \gantttitle{Mar}{1}
+    \gantttitle{Apr}{1}
+    \gantttitle{May}{1}
+    \gantttitle{Jun}{1}
+    \gantttitle{Jul}{1}
+    \gantttitle{Aug}{1}
+    \gantttitle{Sep}{1}
+    \gantttitle{Oct}{1}
+    \gantttitle{Nov}{1}
+    \gantttitle{Dec}{1} \\
+    
+    % Tasks with different colors
+    \ganttbar[bar/.append style={fill=cyan!70}, bar label font=\normalsize\color{black}]{Planning \& Analysis}{1}{2} \\
+    \ganttbar[bar/.append style={fill=magenta!70}, bar label font=\normalsize\color{black}]{System Design}{3}{4} \\
+    \ganttbar[bar/.append style={fill=yellow!70}, bar label font=\normalsize\color{black}]{Database Design}{3}{5} \\
+    \ganttbar[bar/.append style={fill=green!60}, bar label font=\normalsize\color{black}]{Frontend Development}{5}{8} \\
+    \ganttbar[bar/.append style={fill=orange!70}, bar label font=\normalsize\color{black}]{Backend Development}{6}{9} \\
+    \ganttbar[bar/.append style={fill=blue!60}, bar label font=\normalsize\color{black}]{AI Integration}{7}{9} \\
+    \ganttbar[bar/.append style={fill=purple!60}, bar label font=\normalsize\color{black}]{Testing \& QA}{9}{10} \\
+    \ganttbar[bar/.append style={fill=red!60}, bar label font=\normalsize\color{black}]{Deployment}{11}{12}
+    
+\end{ganttchart}
+\end{center}
+
+\vspace{0.5cm}
+
+% -------------------
+% Section 6: Tools and Technologies
+% -------------------
+\section{Tools and Technologies}
+\begin{itemize}
+    \item \textbf{Programming Languages:} Python, JavaScript
+    \item \textbf{Backend Framework:} Django
+    \item \textbf{Frontend Framework:} ReactJS
+    \item \textbf{Database:} MySQL
+    \item \textbf{Design Tools:} Figma
+    \item \textbf{Version Control:} GitHub
+\end{itemize}
+
+% -------------------
+% Section 8: References
+% -------------------
+\section{References}
+\begin{itemize}
+    \item [1] H. Kumar, "Queue Management Systems in Healthcare," \textit{International Journal of Information Systems}, vol. 15, no. 2, pp. 45–51, 2023.
+    \item [2] \href{https://www.ibm.com/cloud/learn/agile-methodology}{IBM: Agile Methodology Overview}.
+    \item [3] \href{https://www.djangoproject.com/}{Django Official Documentation}.
+\end{itemize}
+
+
+
 
 \end{document}
