@@ -40,7 +40,7 @@ Faculty members can upload student submissions, which are automatically evaluate
 ---
 
 ## Software Development Methodology
-The project uses **Agile Scrum methodology**, allowing iterative development and regular feedback from the Requirement Provider.
+The project uses **Incremental Software methodology**, allowing iterative development and regular feedback from the Requirement Provider.
 
 ### Tentative Schedule
 - **Weeks 1–2:** Requirement gathering and analysis
@@ -49,12 +49,6 @@ The project uses **Agile Scrum methodology**, allowing iterative development and
 - **Weeks 9–10:** Testing, evaluation, and documentation
 
 ---
-
-## Project Timeline
-The project phases include Planning & Analysis, System Design, Database Design, Frontend and Backend Development, AI Integration, Testing & QA, and Deployment.
-
----
-changed
 
 
 ## Submission
