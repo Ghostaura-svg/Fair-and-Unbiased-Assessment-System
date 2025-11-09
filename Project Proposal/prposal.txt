@@ -36,7 +36,7 @@
     
     % University Logo (replace 'logo.png' with your logo file name)
     \vspace*{0.5cm}
-    \includegraphics[width=0.2\textwidth]{Namal.png}\\[0.3cm]
+    \includegraphics[width=0.2\textwidth]{images.png}\\[0.3cm]
     
     % University Name
     {\Large\textbf{Namal University, Mianwali}}\\[0.2cm]
@@ -242,16 +242,21 @@ We will use the \textbf{incremental software Development } for this project whic
     \item \textbf{Git \& GitHub (Version Control and Collaboration)}\\
     Git is used to track changes in code, and GitHub provides a collaboration platform where all team members can work together without any data loss.
 \end{enumerate}
+% ====== REFERENCES ======
+\section*{7. References}
+\addcontentsline{toc}{section}{References}
 
-% -------------------
-% Section 8: References
-% -------------------
-\section{References}
-\begin{itemize}
-    \item [1] H. Kumar, "Queue Management Systems in Healthcare," \textit{International Journal of Information Systems}, vol. 15, no. 2, pp. 45–51, 2023.
-    \item [2] \href{https://www.ibm.com/cloud/learn/agile-methodology}{IBM: Agile Methodology Overview}.
-    \item [3] \href{https://www.djangoproject.com/}{Django Official Documentation}.
-\end{itemize}
+
+[1] OpenAI, "I want to create a proposal on latex please give me the structur ofLatex code," OpenAI, 2025. [Online]. Available: \url{https://chat.openai.com/} \\
+
+
+[2] OpenAI, "How to add line spacing in the paragraph of latex code.," OpenAI, 2025. [Online]. Available: \url{https://chat.openai.com/}\\
+
+[3] OpenAI, "What you suggest that title page is professional or not ," OpenAI, 2025. [Online]. Available: \url{https://chat.openai.com/}\\
+
+[4] OpenAI, "What you suggest that title page is professional or not," OpenAI, 2025. [Online]. Available: \url{https://chat.openai.com/}
+
+[5] N. K. Upadhyay, S. D. Upadhyay, and R. M. Dwivedi, "Artificial Intelligence (AI): Healthcare’s New Nervous System," \textit{Cureus}, vol. 14, no. 3, p. e23434, 2022. [Online]. Available: \url{https://pmc.ncbi.nlm.nih.gov/articles/PMC8975708/}
 
 
 
