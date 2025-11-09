@@ -225,17 +225,26 @@ We will use the \textbf{Agile Scrum methodology} for this project because it all
 \vspace{0.5cm}
 
 % -------------------
+% -------------------
 % Section 6: Tools and Technologies
 % -------------------
 \section{Tools and Technologies}
-\begin{itemize}
-    \item \textbf{Programming Languages:} Python, JavaScript
-    \item \textbf{Backend Framework:} Django
-    \item \textbf{Frontend Framework:} ReactJS
-    \item \textbf{Database:} MySQL
-    \item \textbf{Design Tools:} Figma
-    \item \textbf{Version Control:} GitHub
-\end{itemize}
+\begin{enumerate}
+    \item \textbf{HTML, CSS, JavaScript (Front-End Development)}\\
+    These tools are used in the development of the front-end. HTML is used to make the structure, CSS improves the design and layout of the page, and JavaScript is used to make the page interactive and handle form validation.
+
+    \item \textbf{React.js (Front-End Framework)}\\
+    React.js is used to make a dynamic and responsive interface. It allows the creation of reusable components, making the system faster and easier to maintain.
+
+    \item \textbf{Node.js with Express.js (Back-End Development)}\\
+    Node.js provides the server-side environment, while Express.js handles the API routes. Together, they enable smooth communication between the database and the AI module.
+
+    \item \textbf{MongoDB (Database Management System)}\\
+    MongoDB stores student records, assessments, and grading data. It is a NoSQL database that provides fast data access and flexible storage.
+
+    \item \textbf{Git \& GitHub (Version Control and Collaboration)}\\
+    Git is used to track changes in code, and GitHub provides a collaboration platform where all team members can work together without any data loss.
+\end{enumerate}
 
 % -------------------
 % Section 8: References
