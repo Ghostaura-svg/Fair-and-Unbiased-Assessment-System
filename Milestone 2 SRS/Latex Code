@@ -640,4 +640,124 @@ Defines how a student logs into the system using credentials provided by the ins
 \paragraph{Attributes} Prevent unauthorized access; easily toggle multiple assessments.
 
 \paragraph{Other Requirements} Database field indicates visibility status.
+\section{External Interface Requirements}
+
+This section provides all details related to the external interface requirements, describing the user interface, software interface, and communication interface. It explains the complete system interaction with the user.
+
+\subsection{User Interfaces}
+The system shall provide a user-friendly web-based graphical user interface accessible via standard web browsers. For mobile devices, a responsive interface shall adapt to screen size. The interface shall be intuitive such that users can understand the system within 2-3 uses. Separate dashboards shall be provided for faculty, administrators, and students, showing role-specific functionalities. The user interface shall be intuitive, responsive, and consistent across desktop and mobile devices.
+
+\subsubsection{Performance Requirements}
+The system shall meet the following performance requirements:
+\begin{itemize}
+    \item User interfaces shall load within 2-3 seconds under normal network conditions.
+    \item The system shall handle multiple users simultaneously without performance degradation.
+    \item The system shall be operational 99.9\% of the time.
+    \item Teacher and student logins shall authenticate within 2 seconds.
+    \item Assessment submission portals shall activate within 1 second of creation.
+    \item CPU usage shall not exceed 80\% under peak load conditions.
+    \item Memory consumption shall be limited to 50 MB per active session.
+    \item The system shall automatically recover from temporary server or network failures within 1 minute without data loss.
+\end{itemize}
+
+\subsubsection{Design Constraints}
+\begin{itemize}
+    \item The user interface shall be developed using standard web technologies (HTML, CSS, JavaScript).
+    \item The interface shall support responsive design for different screen sizes.
+    \item The system shall follow institutional UI/UX guidelines.
+\end{itemize}
+
+\paragraph{Standards Compliance}
+\begin{itemize}
+    \item The user interface shall comply with IEEE software documentation standards.
+    \item Basic web accessibility standards shall be followed.
+    \item Consistent layout, fonts, and color schemes shall be maintained.
+    \item The system shall adhere to international standards for software quality, including usability, reliability, and maintainability.
+    \item Secure communication protocols shall be used for all data transmission.
+    \item Information security management standards shall be followed.
+\end{itemize}
+
+\paragraph{Hardware Limitations}
+\begin{itemize}
+    \item Hardware shall allow upgrades to CPU, RAM, and storage for increased student load or additional courses.
+    \item Minimum 500 GB storage for student submissions, assessments, and reports.
+    \item Interface shall operate on standard computers, tablets, and smartphones.
+    \item No specialized display or input hardware shall be required.
+    \item Minimum 16 GB RAM to support database operations, AI processing, and multiple sessions.
+\end{itemize}
+
+\subsubsection{Attributes}
+
+\paragraph{Security}
+\begin{itemize}
+    \item All users shall authenticate using a unique username and password.
+    \item Passwords shall be stored in encrypted form using industry-standard encryption.
+    \item Only administrators may create, update, or reset user credentials.
+    \item Student assessment data, marks, and reports shall be accessible only to authorized users.
+    \item Backups shall be securely stored and protected against unauthorized access.
+\end{itemize}
+
+\paragraph{Maintainability}
+\begin{itemize}
+    \item System shall maintain error and activity logs for troubleshooting.
+    \item System updates shall be possible with minimal downtime.
+    \item Fault isolation within modules to prevent system-wide failures.
+    \item User interface components shall be modular and reusable.
+    \item UI updates and enhancements shall be easily implementable without affecting core functionality.
+\end{itemize}
+
+\subsubsection{Other Requirements}
+
+\paragraph{Database}
+\begin{itemize}
+    \item Store course details, faculty-course assignments, and student enrollments.
+    \item Store assessment details, including number, course association, submission timing, and upload permissions.
+    \item Store teacher-uploaded answer keys securely for automated evaluation.
+    \item Support configurable data retention policies for archiving old assessments and reports.
+\end{itemize}
+
+\paragraph{Operations}
+\begin{itemize}
+    \item Administrators shall manage users and system settings.
+    \item Teachers and students shall perform academic activities via the interface.
+\end{itemize}
+
+\paragraph{Site Adaptation}
+\begin{itemize}
+    \item Support deployment in different institutional environments, including on-premise and cloud.
+    \item Operate effectively under varying network conditions (LAN, internet), with configurable network settings.
+    \item Allow customization of academic terms, grading schemes, and course structures.
+    \item Support configuration for different languages, time zones, and date formats.
+    \item Allow site-specific configuration of data storage locations and backup policies.
+\end{itemize}
+
+\subsection{Hardware Interfaces}
+\begin{itemize}
+    \item Operate on standard computing devices: desktops, laptops, tablets, and smartphones.
+    \item Input devices: keyboard, mouse, and touch input.
+    \item Output devices: standard display screens.
+    \item System shall function on devices with internet connectivity.
+    \item Mobile cameras shall be supported for image uploads.
+    \item System shall detect and handle hardware-related errors.
+\end{itemize}
+
+\subsection{Software Interfaces}
+\begin{itemize}
+    \item Operate on Linux and Windows server OS without OS-specific modifications.
+    \item Support web browsers: Chrome, Firefox, Edge.
+    \item Backend server for processing business logic.
+    \item Database management system for storing user and academic data.
+    \item AI evaluation module for automated answer assessment.
+    \item All software interfaces shall follow secure API communication standards.
+\end{itemize}
+
+\subsection{Communications Interfaces}
+\begin{itemize}
+    \item Use HTTP/HTTPS protocols for communication.
+    \item HTTPS shall be used for transmitting sensitive data.
+    \item Support standard internet connections.
+    \item Client-server communication shall be reliable and secure.
+    \item Use TCP/IP as the underlying network protocol.
+    \item Provide standardized error codes and messages for communication failures.
+\end{itemize}
 \end{document}
