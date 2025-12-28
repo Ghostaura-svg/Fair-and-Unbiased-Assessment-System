@@ -291,5 +291,353 @@ Student handwriting and image quality must meet a minimum standard for the AI to
 
 \subsubsection{External AI System Dependency}
 The AI evaluation engine must be available and operational to process and evaluate assessments. Without it, the automated assessment functionality will be unavailable.
+\section{Specific Requirements}
 
+\subsection{Functional Requirements}
+
+%---------------------------
+% 3.1.1 Student Login
+%---------------------------
+\subsubsection{Student Login with Given Credentials}
+
+\paragraph{Introduction} 
+Defines how a student logs into the system using credentials provided by the institution. Access is allowed only after successful authentication.
+
+\paragraph{Inputs}
+\begin{itemize}
+    \item Student username or ID
+    \item Password
+\end{itemize}
+
+\paragraph{Processing}
+\begin{itemize}
+    \item Student enters username and password.
+    \item System verifies credentials from stored records.
+    \item If valid, the student is logged in.
+    \item If invalid, an error message is displayed.
+\end{itemize}
+
+\paragraph{Outputs}
+\begin{itemize}
+    \item Successful login confirmation
+    \item Access to student dashboard
+    \item Error message for invalid credentials
+\end{itemize}
+
+\paragraph{Performance Requirements}
+\begin{itemize}
+    \item Login should complete within 2–3 seconds.
+    \item Multiple students can log in simultaneously.
+\end{itemize}
+
+\paragraph{Design Constraints}
+\subparagraph{Standards Compliance} System should follow secure authentication standards.
+\subparagraph{Hardware Limitations} System performance may depend on internet speed and device capability.
+
+\paragraph{Attributes}
+\subparagraph{Security} Credentials must be protected from unauthorized access.
+\subparagraph{Maintainability} Login module should be easy to update without affecting other modules.
+
+\paragraph{Other Requirements}
+\subparagraph{Database} Student login details stored securely.
+\subparagraph{Operations} System administrators manage login permissions.
+\subparagraph{Site Adaptation} System supports login from different network environments.
+
+%---------------------------
+% 3.1.2 Uploading Quiz and Assignment Answer Images
+%---------------------------
+\subsubsection{Uploading Quiz and Assignment Answer Images}
+
+\paragraph{Introduction} Students can select a course, open the quiz/assignment upload page, and upload image files of handwritten answers.
+
+\paragraph{Inputs}
+\begin{itemize}
+    \item Student ID
+    \item Course selection
+    \item Quiz or assignment selection
+    \item Image files of answers
+\end{itemize}
+
+\paragraph{Processing}
+\begin{itemize}
+    \item System allows image uploads.
+    \item Verifies file format and deadline.
+    \item Valid files stored securely.
+    \item Invalid or late submissions generate an error.
+\end{itemize}
+
+\paragraph{Outputs}
+\begin{itemize}
+    \item Upload success confirmation
+    \item Stored answer files
+    \item Error messages if upload fails
+\end{itemize}
+
+\paragraph{Performance Requirements}
+\begin{itemize}
+    \item Upload completes within 3–5 seconds depending on file size.
+    \item Supports multiple concurrent uploads.
+\end{itemize}
+
+\paragraph{Design Constraints}
+\subparagraph{Standards Compliance} File handling follows storage and security guidelines.
+\subparagraph{Hardware Limitations} Upload speed may depend on device and internet quality.
+
+\paragraph{Attributes}
+\subparagraph{Security} Uploaded files protected from unauthorized access.
+\subparagraph{Maintainability} Supports future file formats.
+
+\paragraph{Other Requirements}
+\subparagraph{Database} Files stored securely.
+\subparagraph{Operations} System logs upload activity.
+\subparagraph{Site Adaptation} Supports classroom and remote environments.
+
+%---------------------------
+% 3.1.3 Viewing Quiz/Assignment Report
+%---------------------------
+\subsubsection{Viewing Quiz/Assignment Report and Class Performance Graph}
+
+\paragraph{Introduction} Students can view their performance report and class performance graph.
+
+\paragraph{Inputs}
+\begin{itemize}
+    \item Student ID
+    \item Selected quiz or assignment
+    \item System-generated evaluation data
+\end{itemize}
+
+\paragraph{Processing}
+\begin{itemize}
+    \item Retrieves student’s own performance report.
+    \item Retrieves class performance data.
+    \item Displays summary graph.
+\end{itemize}
+
+\paragraph{Outputs}
+\begin{itemize}
+    \item Student performance report
+    \item Class performance graph
+    \item Error messages if data unavailable
+\end{itemize}
+
+\paragraph{Performance Requirements} Reports load in 2–4 seconds; graphs display smoothly.
+
+\paragraph{Design Constraints}
+\subparagraph{Standards Compliance} Privacy and data protection standards followed.
+\subparagraph{Hardware Limitations} Graph rendering depends on device capability.
+
+\paragraph{Attributes}
+\subparagraph{Security} Students cannot access others’ reports.
+\subparagraph{Maintainability} Reporting module allows future enhancements.
+
+\paragraph{Other Requirements}
+\subparagraph{Database} Reports stored securely.
+\subparagraph{Operations} Tracks when reports are viewed.
+\subparagraph{Site Adaptation} Viewable from multiple devices/locations.
+
+%---------------------------
+% 3.1.4 Administrator Assign Courses
+%---------------------------
+\subsubsection{Administrator Assign Courses and Create Faculty Credentials}
+
+\paragraph{Introduction} Administrator assigns courses to faculty and generates credentials.
+
+\paragraph{Inputs}
+\begin{itemize}
+    \item Faculty details (name, email, department)
+    \item Course information (code, name, semester)
+\end{itemize}
+
+\paragraph{Processing}
+\begin{itemize}
+    \item Select ``Assign Courses to Faculty''.
+    \item Associate selected courses with faculty.
+    \item Generate secure login credentials.
+\end{itemize}
+
+\paragraph{Outputs}
+\begin{itemize}
+    \item Confirmation of course assignment and credentials
+    \item Error messages if invalid
+\end{itemize}
+
+\paragraph{Performance Requirements} Completion within 2–3 seconds per faculty.
+
+\paragraph{Design Constraints}
+\subparagraph{Standards Compliance} AES-256 encryption for credentials.
+\subparagraph{Hardware Limitations} Server supports up to 500 concurrent faculty accounts.
+
+\paragraph{Attributes}
+\subparagraph{Security} Only administrators can assign/create credentials.
+\subparagraph{Maintainability} Easy to update assignment logic.
+
+\paragraph{Other Requirements} Records stored securely in database.
+
+%---------------------------
+% 3.1.5 Administrator Enroll Students
+%---------------------------
+\subsubsection{Administrator Enroll Students and Create Credentials}
+
+\paragraph{Introduction} Administrator enrolls students and generates login credentials.
+
+\paragraph{Inputs}
+\begin{itemize}
+    \item Student details (name, email, registration number)
+    \item Course selection
+\end{itemize}
+
+\paragraph{Processing}
+\begin{itemize}
+    \item Enroll students in courses.
+    \item Generate credentials automatically.
+\end{itemize}
+
+\paragraph{Outputs}
+\begin{itemize}
+    \item Enrollment confirmation
+    \item Credential creation confirmation
+    \item Error if duplicate enrollment
+\end{itemize}
+
+\paragraph{Performance Requirements} Completion within 2–3 seconds per student.
+
+\paragraph{Design Constraints}
+\subparagraph{Standards Compliance} Secure password and data storage.
+\subparagraph{Hardware Limitations} Support batch enrollment of 500 students.
+
+\paragraph{Attributes}
+\subparagraph{Security} Credentials confidential to students.
+\subparagraph{Maintainability} Bulk enrollment easily updated.
+
+\paragraph{Other Requirements} Database stores enrollment/credential records securely.
+
+%---------------------------
+% 3.1.6 Administrator Credential Update
+%---------------------------
+\subsubsection{Administrator Credential Update}
+
+\paragraph{Introduction} Administrator updates credentials if lost or forgotten.
+
+\paragraph{Inputs}
+\begin{itemize}
+    \item Username or email
+    \item New password or credential details
+\end{itemize}
+
+\paragraph{Processing}
+\begin{itemize}
+    \item Verify user identity
+    \item Update credential in database
+    \item Send confirmation
+\end{itemize}
+
+\paragraph{Outputs}
+\begin{itemize}
+    \item Confirmation of successful update
+    \item Error if verification fails
+\end{itemize}
+
+\paragraph{Performance Requirements} Completion under 2 seconds.
+
+\paragraph{Design Constraints} Admin-only access, encrypted storage.
+
+\paragraph{Attributes}
+\subparagraph{Security} Only authorized admin updates credentials.
+\subparagraph{Maintainability} Audit logs maintained.
+
+\paragraph{Other Requirements} Update records in User Credentials table.
+
+%---------------------------
+% 3.1.7 Teacher Login and Dashboard
+%---------------------------
+\subsubsection{Teacher Login and Dashboard}
+
+\paragraph{Introduction} Teachers log in and view assigned courses.
+
+\paragraph{Inputs} Teacher username and password.
+
+\paragraph{Processing} Authenticate credentials and display assigned courses.
+
+\paragraph{Outputs} Teacher dashboard, login confirmation or error.
+
+\paragraph{Performance Requirements} Authentication within 1–2 seconds; dashboard loads within 2 seconds per course.
+
+\paragraph{Design Constraints} Web browser compatibility; secure HTTPS login.
+
+\paragraph{Attributes} Session timeout for security; modular dashboard for maintainability.
+
+\paragraph{Other Requirements} Database links teacher table with course assignment.
+
+%---------------------------
+% 3.1.8 Teacher Create Assessment
+%---------------------------
+\subsubsection{Teacher Create Assessment}
+
+\paragraph{Introduction} Teachers create assessments, set portal times, and enable student uploads.
+
+\paragraph{Inputs}
+\begin{itemize}
+    \item Assessment number
+    \item Portal start and end times
+    \item Checkbox for student uploads
+\end{itemize}
+
+\paragraph{Processing}
+\begin{itemize}
+    \item Select course, create assessment
+    \item Popup collects details
+    \item Activate submission portal if enabled
+\end{itemize}
+
+\paragraph{Outputs} Confirmation of creation; active submission portal.
+
+\paragraph{Performance Requirements} Complete in under 3 seconds; support 200+ simultaneous submissions.
+
+\paragraph{Design Constraints} Popup UI follows accessibility guidelines; server handles real-time uploads.
+
+\paragraph{Attributes} Only authorized teachers can create assessments; modular for maintainability.
+
+\paragraph{Other Requirements} Database stores assessments and portals.
+
+%---------------------------
+% 3.1.9 Automated Assessment Checking
+%---------------------------
+\subsubsection{Automated Assessment Checking and Report Generation}
+
+\paragraph{Introduction} System automatically checks student assessments and generates reports.
+
+\paragraph{Inputs} Teacher-uploaded keys; student submissions.
+
+\paragraph{Processing} Compare answers with keys; generate student and teacher reports.
+
+\paragraph{Outputs} Individual student reports; class performance reports.
+
+\paragraph{Performance Requirements} 50 submissions checked in 5 seconds; 100 reports in 10 seconds.
+
+\paragraph{Design Constraints} Reports in PDF/HTML; server supports bulk processing.
+
+\paragraph{Attributes} Accessible only to authorized users; modular marking logic.
+
+\paragraph{Other Requirements} Database tables: AnswerKeys, Student\_Submissions, Reports.
+
+%---------------------------
+% 3.1.10 Teacher Control Over Student Marks Visibility
+%---------------------------
+\subsubsection{Teacher Control Over Student Marks Visibility}
+
+\paragraph{Introduction} Teachers choose whether students can see their marks.
+
+\paragraph{Inputs} Teacher selection (show/hide marks).
+
+\paragraph{Processing} Record teacher preference; control visibility in dashboard.
+
+\paragraph{Outputs} Updated student dashboard; confirmation to teacher.
+
+\paragraph{Performance Requirements} Changes reflected within 1–2 seconds.
+
+\paragraph{Design Constraints} Only authorized teachers can modify; maintain report integrity.
+
+\paragraph{Attributes} Prevent unauthorized access; easily toggle multiple assessments.
+
+\paragraph{Other Requirements} Database field indicates visibility status.
 \end{document}
