@@ -1,0 +1,279 @@
+\documentclass[12pt,a4paper]{report}
+
+% ---------------- Encoding ----------------
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+
+% ---------------- Layout ----------------
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\onehalfspacing
+
+% ---------------- Tables ----------------
+\usepackage{longtable}
+\usepackage{array}
+
+% ---------------- Graphics ----------------
+\usepackage{graphicx}
+
+% ---------------- Section Formatting ----------------
+\usepackage{titlesec}
+\titleformat{\chapter}{\bfseries\Large}{\thechapter}{1em}{}
+\titleformat{\section}{\bfseries\large}{\thesection}{1em}{}
+\titleformat{\subsection}{\bfseries}{\thesubsection}{1em}{}
+\titleformat{\subsubsection}{\bfseries}{\thesubsubsection}{1em}{}
+
+% ---------------- Hyperlinks (LAST) ----------------
+\usepackage{hyperref}
+
+\begin{document}
+
+% ================= Title Page =================
+\begin{titlepage}
+\centering
+\vspace*{1in}
+
+{\LARGE\textbf{Fair and Un-Biased Assessment System}}\\[0.3in]
+{\Large Semester Project Proposal}\\[0.3in]
+{\large Session 2025--2026}\\[0.7in]
+
+{\Large\textbf{Namal University Mianwali}}\\
+{\large Department of Computer Science}\\[0.8in]
+
+\begin{tabular}{l l}
+\textbf{Abdul Rehman} & Num-bscs-2024-01 \\
+\textbf{Ahmed Gujjar} & Num-bscs-2024-02 \\
+\textbf{Junaid Gondal} & Num-bscs-2024-28 \\
+\end{tabular}
+
+\vfill
+\end{titlepage}
+
+\tableofcontents
+\newpage
+
+% ================= Chapter 1 =================
+\chapter{Introduction}
+
+\section{Purpose}
+
+\subsection{Purpose of the SRS}
+The basic purpose of the Software Requirement Specification is to show the complete visual picture of the Fair and Unbiased Assessment System. It describes the system specifications and functional requirements so stakeholders, developers, and testers clearly understand system behavior and expectations.
+
+\subsection{Intended Audience}
+This SRS is intended for stakeholders, developers, testers, and end users.
+
+\section{Stakeholders}
+
+\textbf{Institutional Decision Makers:} Ensure educational compliance and fairness.  
+
+\textbf{Project Managers:} Monitor progress and resources.
+
+\section{Development Teams}
+
+\textbf{Software Engineers:} Implement system requirements.  
+
+\textbf{System Architects:} Design scalable and fault-tolerant architecture.
+
+\section{Testers}
+
+\textbf{Quality Assurance Specialists:} Validate system correctness and fairness.
+
+\section{End Users}
+
+\textbf{Assessors and Candidates:} Use the system for fair assessments.
+
+% ================= Scope =================
+\section{Scope}
+
+\subsection{Software Product Identification}
+The software is named \textbf{Fair and Unbiased Assessment System (FUAS)}.
+\begin{itemize}
+\item Registration and authentication
+\item Evaluation and scoring
+\item Report generation
+\item Content management
+\item System administration
+\end{itemize}
+
+\subsection{Product Functions}
+\begin{itemize}
+\item User verification
+\item Course assignment
+\item Upload quizzes and tests
+\item Automated evaluation
+\item Report generation
+\item Data security
+\end{itemize}
+
+The system will not:
+\begin{itemize}
+\item Generate answer keys automatically
+\item Modify uploaded assessments
+\end{itemize}
+
+\subsection{Application Description}
+The system ensures unbiased evaluation of quizzes, assignments, and tests in educational institutions.
+
+\subsection{Benefits, Objectives, and Goals}
+\begin{itemize}
+\item Bias reduction
+\item Transparency
+\item 99\% scoring accuracy
+\item Support up to 10,000 users
+\item Secure encrypted data
+\end{itemize}
+
+\subsection{Consistency with Higher-Level Specifications}
+Aligned with institutional and regulatory standards.
+
+% ================= Definitions =================
+\section{Definitions, Acronyms, and Abbreviations}
+
+\begin{longtable}{|p{4cm}|p{10cm}|}
+\hline
+\textbf{Term} & \textbf{Definition} \\ \hline
+FUAS & Fair and Unbiased Assessment System \\ \hline
+SRS & Software Requirements Specification \\ \hline
+UI/UX & User Interface/User Experience \\ \hline
+Candidate & Assessment participant \\ \hline
+Assessor & Authorized evaluator \\ \hline
+RBAC & Role-Based Access Control \\ \hline
+API & Application Programming Interface \\ \hline
+JSON & JavaScript Object Notation \\ \hline
+\end{longtable}
+
+% ================= References =================
+\section{References}
+
+\subsection{Standards}
+\begin{itemize}
+\item IEEE Std 830-1984
+\item IEEE Std 1002-1987
+\end{itemize}
+
+\subsection{Technical Documentation}
+\begin{itemize}
+\item MongoDB
+\item Express.js
+\item Node.js
+\end{itemize}
+
+\subsection{Development Tools}
+\begin{itemize}
+\item Visual Studio Code
+\item GitHub
+\end{itemize}
+
+% ================= Chapter 2 =================
+\chapter{General Description}
+
+\section{Product Perspective}
+This system removes bias concerns by using AI-based assessment checking for handwritten and digital submissions.
+
+\subsection{System Context}
+Users include students, instructors, and administrators.
+
+\subsection{User Interfaces}
+\textbf{Mobile:} Camera-based uploads.  
+
+\textbf{Web:} Full functionality except camera.
+
+\subsection{Hardware Interfaces}
+Mobile phones, laptops, PCs, and servers.
+
+\subsection{Software Interfaces}
+AI Mark Assist Engine and Database System.
+
+\subsection{Communication Interfaces}
+Secure HTTPS communication.
+
+% ================= Functions =================
+\section{Product Functions}
+
+\subsection{Data Capture and Digitization}
+Extracts text from uploaded images.
+
+\subsection{Assessment Evaluation}
+Evaluates answers using keys and logic.
+
+\subsection{Reporting and Analytics}
+Generates automated reports.
+
+\subsection{Course Management}
+Assigns courses to users.
+
+% ================= Users =================
+\section{User Characteristics}
+
+\subsection{Students}
+Upload assessments and view reports.
+
+\subsection{Teachers}
+Upload keys and view class analytics.
+
+\subsection{Administrators}
+Manage users and courses.
+
+% ================= Constraints =================
+\section{General Constraints}
+
+\subsection{Regulatory Constraints}
+Educational data protection policies apply.
+
+\subsection{Hardware Limitations}
+Depends on device and camera quality.
+
+\subsection{Parallel Operations}
+Handles peak submission loads.
+
+\subsection{Security}
+Encrypted communication and RBAC.
+
+% ================= Assumptions =================
+\section{Assumptions and Dependencies}
+
+\subsection{Handwriting Legibility}
+Readable handwriting required.
+
+\subsection{AI Dependency}
+AI engine availability required.
+
+% ================= Chapter 3 =================
+\chapter{Specific Requirements}
+
+\section{Functional Requirements}
+
+\subsection{Student Login}
+Authentication using credentials within 2--3 seconds.
+
+\subsection{Upload Assessments}
+Secure image upload.
+
+\subsection{View Reports}
+Personal report and class graph.
+
+\subsection{Administrator Functions}
+Course assignment and credential management.
+
+\subsection{Teacher Functions}
+Assessment creation and report viewing.
+
+% ================= Interfaces =================
+\section{External Interface Requirements}
+
+\subsection{User Interface}
+Responsive web and mobile UI.
+
+\subsection{Performance}
+99.9\% uptime, fast response.
+
+\subsection{Security}
+Encrypted passwords and access control.
+
+% ================= Appendix =================
+\appendix
+\chapter{Appendix}
+Additional supporting information.
+
+\end{document}
