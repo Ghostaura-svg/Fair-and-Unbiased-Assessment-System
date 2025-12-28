@@ -1,22 +1,25 @@
 \documentclass[12pt,a4paper]{article}
-
 % ------------------ Packages ------------------
 \usepackage[margin=1in]{geometry}
 \usepackage{setspace}
 \usepackage{titlesec}
 \usepackage{tocloft}
 \usepackage{hyperref}
-
+\hypersetup{
+    colorlinks=true,
+    linkcolor=black,
+    citecolor=black,
+    urlcolor=blue
+}
 % ------------------ Formatting ------------------
 \setstretch{1.5}
 \setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 
 \titleformat{\section}
   {\normalfont\Large\bfseries}{\thesection.}{1em}{}
-
 \titleformat{\subsection}
   {\normalfont\large\bfseries}{\thesubsection}{1em}{}
-
 \titleformat{\subsubsection}
   {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
 
@@ -27,23 +30,19 @@
 \begin{titlepage}
     \centering
     \vspace*{1.5cm}
-
     {\Large \textbf{Session 2025--2026}}\\[1.5cm]
-
     {\Large \textbf{Namal University Mianwali}}\\[0.5cm]
     {\large \textbf{Department of Computer Science}}\\[2cm]
-
     {\LARGE \textbf{Software Requirements Specification}}\\[0.5cm]
     {\Large \textbf{Fair and Unbiased Assessment System}}\\[2cm]
-
     \begin{flushleft}
     \textbf{Submitted By:}\\[0.5cm]
     Abdul Rehman \hfill Num-bscs-2024-01\\
     Ahmed Gujjar \hfill Num-bscs-2024-02\\
     Junaid Gondal \hfill Num-bscs-2024-28\\
     \end{flushleft}
-
     \vfill
+    {\large \today}
 \end{titlepage}
 
 % ------------------ Table of Contents ------------------
@@ -51,14 +50,12 @@
 \newpage
 
 % ------------------ Sections ------------------
-
-
 \section{Introduction}
 
 \subsection{Purpose}
 
 \subsubsection{Purpose of SRS}
-The primary purpose of this Software Requirements Specification (SRS) is to present a complete and clear description of the \textbf{Fair and Unbiased Assessment System (FUAS)}. This document provides detailed information about the system’s functional and non-functional requirements, enabling stakeholders to understand what the system is expected to deliver.  
+The primary purpose of this Software Requirements Specification (SRS) is to present a complete and clear description of the \textbf{Fair and Unbiased Assessment System (FUAS)}. This document provides detailed information about the system’s functional and non-functional requirements, enabling stakeholders to understand what the system is expected to deliver.
 
 The SRS serves as a shared reference for stakeholders, developers, and testers. It ensures that developers implement the system according to specified requirements and that testers validate all functionalities as demanded by stakeholders. Overall, this document acts as a communication bridge among all team members and stakeholders.
 
@@ -136,7 +133,7 @@ The Fair and Unbiased Assessment System is designed for use in educational insti
 This SRS is consistent with higher-level system requirement specifications that emphasize fairness, equality, transparency, and compliance with educational and regulatory standards.
 
 \subsection{Definitions, Acronyms, and Abbreviations}
- defines the terms, acronyms, and abbreviations used throughout this document.
+This section defines the terms, acronyms, and abbreviations used throughout this document.
 
 \begin{table}[h]
 \centering
@@ -200,6 +197,7 @@ This SRS document is organized as follows:
     \item Sections are numbered hierarchically for clarity.
     \item Each section focuses on a specific system aspect, with subsections providing detailed explanations.
 \end{itemize}
+
 \section{General Description}
 
 \subsection{Product Perspective}
@@ -640,17 +638,14 @@ Defines how a student logs into the system using credentials provided by the ins
 \paragraph{Attributes} Prevent unauthorized access; easily toggle multiple assessments.
 
 \paragraph{Other Requirements} Database field indicates visibility status.
-\section{External Interface Requirements}
+\subsection{External Interface Requirements}
 
-This section provides all details related to the external interface requirements, describing the user interface, software interface, and communication interface. It explains the complete system interaction with the user.
+\subsubsection{User Interfaces}
+The system shall provide a user-friendly web-based graphical user interface accessible via standard web browsers. For mobile devices, a responsive interface shall adapt to screen size. The interface shall be intuitive such that users can understand the system within 2--3 uses. Separate dashboards shall be provided for faculty, administrators, and students, showing role-specific functionalities.
 
-\subsection{User Interfaces}
-The system shall provide a user-friendly web-based graphical user interface accessible via standard web browsers. For mobile devices, a responsive interface shall adapt to screen size. The interface shall be intuitive such that users can understand the system within 2-3 uses. Separate dashboards shall be provided for faculty, administrators, and students, showing role-specific functionalities. The user interface shall be intuitive, responsive, and consistent across desktop and mobile devices.
-
-\subsubsection{Performance Requirements}
-The system shall meet the following performance requirements:
+\paragraph{ Performance Requirements}
 \begin{itemize}
-    \item User interfaces shall load within 2-3 seconds under normal network conditions.
+    \item User interfaces shall load within 2--3 seconds under normal network conditions.
     \item The system shall handle multiple users simultaneously without performance degradation.
     \item The system shall be operational 99.9\% of the time.
     \item Teacher and student logins shall authenticate within 2 seconds.
@@ -660,14 +655,9 @@ The system shall meet the following performance requirements:
     \item The system shall automatically recover from temporary server or network failures within 1 minute without data loss.
 \end{itemize}
 
-\subsubsection{Design Constraints}
-\begin{itemize}
-    \item The user interface shall be developed using standard web technologies (HTML, CSS, JavaScript).
-    \item The interface shall support responsive design for different screen sizes.
-    \item The system shall follow institutional UI/UX guidelines.
-\end{itemize}
+\paragraph{ Design Constraints}
 
-\paragraph{Standards Compliance}
+\subparagraph{ Standards Compliance}
 \begin{itemize}
     \item The user interface shall comply with IEEE software documentation standards.
     \item Basic web accessibility standards shall be followed.
@@ -677,7 +667,7 @@ The system shall meet the following performance requirements:
     \item Information security management standards shall be followed.
 \end{itemize}
 
-\paragraph{Hardware Limitations}
+\subparagraph{3.2.2.2 Hardware Limitations}
 \begin{itemize}
     \item Hardware shall allow upgrades to CPU, RAM, and storage for increased student load or additional courses.
     \item Minimum 500 GB storage for student submissions, assessments, and reports.
@@ -686,9 +676,9 @@ The system shall meet the following performance requirements:
     \item Minimum 16 GB RAM to support database operations, AI processing, and multiple sessions.
 \end{itemize}
 
-\subsubsection{Attributes}
+\paragraph{ Attributes}
 
-\paragraph{Security}
+\subparagraph{ Security}
 \begin{itemize}
     \item All users shall authenticate using a unique username and password.
     \item Passwords shall be stored in encrypted form using industry-standard encryption.
@@ -697,7 +687,7 @@ The system shall meet the following performance requirements:
     \item Backups shall be securely stored and protected against unauthorized access.
 \end{itemize}
 
-\paragraph{Maintainability}
+\subparagraph{ Maintainability}
 \begin{itemize}
     \item System shall maintain error and activity logs for troubleshooting.
     \item System updates shall be possible with minimal downtime.
@@ -706,9 +696,9 @@ The system shall meet the following performance requirements:
     \item UI updates and enhancements shall be easily implementable without affecting core functionality.
 \end{itemize}
 
-\subsubsection{Other Requirements}
+\paragraph{ Other Requirements}
 
-\paragraph{Database}
+\subparagraph{ Database}
 \begin{itemize}
     \item Store course details, faculty-course assignments, and student enrollments.
     \item Store assessment details, including number, course association, submission timing, and upload permissions.
@@ -716,13 +706,13 @@ The system shall meet the following performance requirements:
     \item Support configurable data retention policies for archiving old assessments and reports.
 \end{itemize}
 
-\paragraph{Operations}
+\subparagraph{Operations}
 \begin{itemize}
     \item Administrators shall manage users and system settings.
     \item Teachers and students shall perform academic activities via the interface.
 \end{itemize}
 
-\paragraph{Site Adaptation}
+\subparagraph{ Site Adaptation}
 \begin{itemize}
     \item Support deployment in different institutional environments, including on-premise and cloud.
     \item Operate effectively under varying network conditions (LAN, internet), with configurable network settings.
@@ -731,7 +721,7 @@ The system shall meet the following performance requirements:
     \item Allow site-specific configuration of data storage locations and backup policies.
 \end{itemize}
 
-\subsection{Hardware Interfaces}
+\paragraph{Hardware Interfaces}
 \begin{itemize}
     \item Operate on standard computing devices: desktops, laptops, tablets, and smartphones.
     \item Input devices: keyboard, mouse, and touch input.
@@ -741,7 +731,7 @@ The system shall meet the following performance requirements:
     \item System shall detect and handle hardware-related errors.
 \end{itemize}
 
-\subsection{Software Interfaces}
+\paragraph{Software Interfaces}
 \begin{itemize}
     \item Operate on Linux and Windows server OS without OS-specific modifications.
     \item Support web browsers: Chrome, Firefox, Edge.
@@ -751,7 +741,7 @@ The system shall meet the following performance requirements:
     \item All software interfaces shall follow secure API communication standards.
 \end{itemize}
 
-\subsection{Communications Interfaces}
+\paragraph{Communications Interfaces}
 \begin{itemize}
     \item Use HTTP/HTTPS protocols for communication.
     \item HTTPS shall be used for transmitting sensitive data.
@@ -760,4 +750,29 @@ The system shall meet the following performance requirements:
     \item Use TCP/IP as the underlying network protocol.
     \item Provide standardized error codes and messages for communication failures.
 \end{itemize}
+
+\section{Appendix}
+
+%---------------------------
+% First Image with Heading
+%---------------------------
+\subsection*{Figure 1: First Image Heading}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{path/to/your_first_image.jpg} % replace with your image path
+    \caption{Caption for the first image.}
+    \label{fig:first_image}
+\end{figure}
+
+%---------------------------
+% Second Image with Heading
+%---------------------------
+\subsection*{Figure 2: Second Image Heading}
+\begin{figure}[h!]
+    \centering
+    \includegraphics[width=0.7\textwidth]{path/to/your_second_image.jpg} % replace with your image path
+    \caption{Caption for the second image.}
+    \label{fig:second_image}
+\end{figure}
+
 \end{document}
