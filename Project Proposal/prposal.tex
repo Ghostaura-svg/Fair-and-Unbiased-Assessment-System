@@ -1,4 +1,6 @@
 \documentclass[12pt,a4paper]{article}
+
+% --- Packages ---
 \usepackage[a4paper, margin=1in]{geometry}
 \usepackage{graphicx}
 \usepackage{fancyhdr}
@@ -11,31 +13,7 @@
 \usepackage[table]{xcolor}
 \usepackage{tabularx}
 \usepackage{array}
-% ------------------ Packages ------------------
-\usepackage[margin=1in]{geometry}
-\usepackage{setspace}
-\usepackage{titlesec}
-\usepackage{tocloft}
-\usepackage{hyperref}
-\hypersetup{
-    colorlinks=true,
-    linkcolor=black,
-    citecolor=black,
-    urlcolor=blue
-}
-% ------------------ Formatting ------------------
-\setstretch{1.5}
-\setcounter{tocdepth}{4}
-\setcounter{secnumdepth}{4}
 
-\titleformat{\section}
-  {\normalfont\Large\bfseries}{\thesection.}{1em}{}
-\titleformat{\subsection}
-  {\normalfont\large\bfseries}{\thesubsection}{1em}{}
-\titleformat{\subsubsection}
-  {\normalfont\normalsize\bfseries}{\thesubsubsection}{1em}{}
-
-% ------------------ Document -----------------
 % --- Page setup ---
 \setstretch{1.2}
 \pagestyle{fancy}
@@ -44,12 +22,9 @@
 \lhead{CSC-225: Software Engineering}
 \rfoot{\thepage}
 
-% --- Title formatting for proper numbering ---
-\titleformat{\section}{\bfseries\large}{\thesection}{0.5em}{}
-\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection}{0.5em}{}
-\titleformat{\subsubsection}{\bfseries\normalsize}{\thesubsubsection}{0.5em}{}
-\titleformat{\paragraph}{\bfseries\normalsize}{\theparagraph}{0.5em}{}
-\titleformat{\subparagraph}{\normalfont\normalsize}{\thesubparagraph}{0.5em}{}
+% --- Title formatting ---
+\titleformat{\section}{\bfseries\large}{\thesection.}{0.5em}{}
+\titleformat{\subsection}{\bfseries\normalsize}{\thesubsection.}{0.5em}{}
 
 \begin{document}
 
@@ -58,16 +33,27 @@
 % -------------------
 \begin{titlepage}
     \centering
+    
+    % University Logo (replace 'logo.png' with your logo file name)
     \vspace*{0.5cm}
-    \includegraphics[width=0.2\textwidth]{Namal_Institute_Logo.png}\\[0.3cm]
+    \includegraphics[width=0.2\textwidth]{Namal.png}\\[0.3cm]
+    
+    % University Name
     {\Large\textbf{Namal University, Mianwali}}\\[0.2cm]
     {\large Department of Computer Science}\\[1cm]
+    
+    % Horizontal line
     \rule{\textwidth}{1.5pt}\\[0.5cm]
-    {\Huge\textbf{System Requirement Specification}}\\[0.4cm]
-    {\Huge\textbf{For}}\\[0.6cm]
-    {\Huge\textbf{Fair and Unbiased Assessment }}\\[0.6cm]
-    {\Huge\textbf{System}}\\[0.3cm]
+    
+    % Project Title
+    {\Huge\textbf{Fair and Unbiased}}\\[0.4cm]
+    {\Huge\textbf{Assessment System}}\\[0.3cm]
+    {\Large Project Proposal Document}\\[0.2cm]
+    
+    % Horizontal line
     \rule{\textwidth}{1.5pt}\\[2cm]
+    
+    % Course Information Table
     \begin{table}[h]
         \centering
         \renewcommand{\arraystretch}{1.3}
@@ -79,13 +65,16 @@
             \hline
         \end{tabularx}
     \end{table}
+    
     \vspace{0.3cm}
+    
+    % Team Members Table - NEW LAYOUT
     \begin{table}[h]
         \centering
         \renewcommand{\arraystretch}{1.3}
         \begin{tabularx}{0.85\textwidth}{|X|c|X|}
             \hline
-            \multicolumn{3}{|c|}{\textbf{Team Members}} \\
+            \multicolumn{3}{|c|}{\textbf{ Team Members}} \\
             \hline
             \textbf{Name} & \textbf{Roll No} & \textbf{Emails} \\
             \hline
@@ -97,739 +86,169 @@
             \hline
         \end{tabularx}
     \end{table}
+    
     \vfill
-    {\large \textbf{Submission Date:} December 29, 2025}
+    
+    % Submission Date at bottom
+    {\large \textbf{Submission Date:} November 9, 2025}
+    
     \vspace{0.5cm}
+    
 \end{titlepage}
 
-% ------------------ Table of Contents ------------------
+\newpage
 \tableofcontents
 \newpage
 
-% ------------------ Sections ------------------
+% -------------------
+% Section 1: Introduction
+% -------------------
 \section{Introduction}
+Traditional assessment methods in Pakistan's education system still mainly rely on manual grading. Some institutions are shifting toward online assessments, but rapid progress in this area has not yet been observed. The traditional method of grading and checking cause problems and unnecessary workload for faculty members. These issues can affect the accuracy and fairness of student evaluations. Therefore, advancement in the field of assessment is necessary for Pakistan's education system.
 
-\subsection{Purpose}
+A web-based tool called \textbf{"Fair and Unbiased Assessment System"} is designed to assist university instructors in evaluating students using Artificial Intelligence. The system's main goal is to ensure that each student is assessed equally, fairly, and without errors. Teachers will be able to upload student responses, which the AI model will evaluate and grade using either model answers or predefined rules.
 
-\subsubsection{Purpose of SRS}
-The primary purpose of this Software Requirements Specification (SRS) is to present a complete and clear description of the \textbf{Fair and Unbiased Assessment System (FUAS)}. This document provides detailed information about the system’s functional and non-functional requirements, enabling stakeholders to understand what the system is expected to deliver.
+% -------------------
+% Section 2: Problem Statement
+% -------------------
+\section{Problem Statement}
+The Manual Grading and Assessment System in Pakistan causes issues. The issues in this sector are like Human errors, the person who takes the assessment may make some errors and have a different mood, one error is biasness, the faculty person has some likes and dislikes, and according to them the person gives good or bad  marks, the other error is inconsistency and delayed in the assessment, the person is busy with some moments and for quick response the person made some mistakes. 
 
-The SRS serves as a shared reference for stakeholders, developers, and testers. It ensures that developers implement the system according to specified requirements and that testers validate all functionalities as demanded by stakeholders. Overall, this document acts as a communication bridge among all team members and stakeholders.
+This is very challenging to ensure fairness and consistency for all students because the evaluation process is still heavily dependent on the the judgment of instructor even in the case where online submissions are available. As a result, an AI based Web application is required to help teachers to evaluate quizzes and assignments in a fair, accurate, and effective manner. This will help to decrease the problems between students and teachers.
 
-\subsubsection{Intended Audience}
-This Software Requirements Specification (SRS) is intended for stakeholders, developers, end users, and testers to ensure that all parties are well informed about the Fair and Unbiased Assessment System.
+% -------------------
+% Section 3: Project Objectives
+% -------------------
+\section{Project Objectives}
+The primary objectives of the Fair and Unbiased Assessment System are:
+\begin{enumerate}
+    \item To develop a web based system which can markquizes assignment and as well as assignments with the help of artificial intelligence and modern technologies etc
 
-\paragraph{Stakeholders}
-\begin{itemize}
-    \item \textbf{Institutional Decision Makers:} Ensure that the system aligns with educational objectives and regulatory requirements such as fairness, accountability, scalability, copyright compliance, and transparency.
-    \item \textbf{Project Managers:} Monitor project progress, ensure resource availability, and verify that project goals are achieved within the defined schedule.
-\end{itemize}
+    \item The system aim to be minimize the human errors and biases regarding to the grading process and make the grading process very fair and transparent
 
-\paragraph{Development Teams}
-\begin{itemize}
-    \item \textbf{Software Engineers:} Use this SRS as a roadmap to implement functional and non-functional requirements and develop a reliable, fair, and unbiased assessment system.
-    \item \textbf{System Architects:} Design the system’s high-level architecture to ensure scalability, reliability, integration, proper data flow, and fault tolerance.
-\end{itemize}
+    \item To minimize the teacher's workload make the regarding process very fast and clear without any bias
 
-\paragraph{Testers}
-\begin{itemize}
-    \item \textbf{Quality Assurance Specialists:} Design and execute test cases to ensure that all functional requirements operate correctly and that the assessment process remains fair and accurate.
-\end{itemize}
+    \item Records the student performance and assessments in the data base so that  we can track them easily
 
-\paragraph{End Users}
-\begin{itemize}
-    \item \textbf{Assessors and Candidates:} Verify that the system provides unbiased evaluation, transparency, and a positive user experience.
-\end{itemize}
+    \item To allow the faculty members to review, verify and  edit AI-generated results
+    \item The aim to develop the system to provide the transparency and academic integrity to make the education system more reliable and trustworthy 
+   .
+\end{enumerate}
 
-\subsection{Scope}
 
-\subsubsection{Software Product Identification}
-The software product is named \textbf{Fair and Unbiased Assessment System (FUAS)}. The system consists of the following major components:
-\begin{itemize}
-    \item Registration and authentication
-    \item Evaluation and scoring
-    \item Report generation module
-    \item Content management module
-    \item System administration
-\end{itemize}
+\section{Stakeholder Identification}
 
-\subsubsection{Product Functions}
-The Fair and Unbiased Assessment System is designed to:
-\begin{itemize}
-    \item Register users and verify user credentials
-    \item Assign courses to teachers and students
-    \item Allow students to upload handwritten answer images
-    \item Enable creation of sections for quizzes and tests
-    \item Allow teachers to upload answer keys
-    \item Automatically evaluate quizzes and tests based on answer keys and critical thinking analysis
-    \item Prevent modification of marks once uploaded
-    \item Generate assessment reports
-    \item Ensure data integrity and privacy
-\end{itemize}
-
-The system will not:
-\begin{itemize}
-    \item Automatically generate answer keys
-    \item Replace or modify any submitted quiz or test
-\end{itemize}
-
-\subsubsection{Application Description}
-The Fair and Unbiased Assessment System is designed for use in educational institutions to evaluate assignments, quizzes, and tests without bias or favoritism. The system ensures that all students are treated equally and that marks are awarded strictly based on performance rather than personal influence.
-
-\paragraph{Benefits, Objectives, and Goals}
-\begin{itemize}
-    \item \textbf{Fairness and Bias Reduction:} Ensures assessments are marked solely on performance.
-    \item \textbf{Transparency:} Provides a clear and uniform evaluation process accessible to authorized stakeholders.
-    \item \textbf{Accuracy and Reliability:} Delivers objective assessment accuracy of more than 99\%.
-    \item \textbf{Scalability:} Supports up to 10,000 candidates without performance degradation.
-    \item \textbf{Efficiency:} Evaluates assessments and generates reports within five minutes.
-    \item \textbf{Security:} Protects user data through encryption and role-based access control.
-\end{itemize}
-
-\subsubsection{Consistency with Higher-Level Specifications}
-This SRS is consistent with higher-level system requirement specifications that emphasize fairness, equality, transparency, and compliance with educational and regulatory standards.
-
-\subsection{Definitions, Acronyms, and Abbreviations}
-This section defines the terms, acronyms, and abbreviations used throughout this document.
-
-\begin{table}[h]
-\centering
-\begin{tabular}{|l|p{9cm}|}
+There are many stakeholders involved in this \textbf{Fair and Unbiased Assessment System}. They are connected through different roles with this system, but every person has its important role to make the software successful and good
+\begin{center}
+\begin{tabular}{|p{4cm}|p{4cm}|p{7cm}|}
 \hline
-\textbf{Term/Acronym} & \textbf{Definition} \\
+\textbf{Stakeholder} & \textbf{Role} & \textbf{Relation to the System} \\
 \hline
-FUAS & Fair and Unbiased Assessment System \\
-SRS & Software Requirements Specification \\
-UI/UX & User Interface / User Experience \\
-Assessment & A structured evaluation of knowledge or skills \\
-Candidate & An individual registered for assessment \\
-Assessor & Authorized person to manage assessments \\
-Bias Detection & Mechanisms to reduce unfair evaluation \\
-Evaluation Engine & Automated scoring component \\
-Audit Log & Secure record of system activities \\
-QA & Quality Assurance \\
-RBAC & Role-Based Access Control \\
-API & Application Programming Interface \\
-JSON & JavaScript Object Notation \\
+University Instructors & They are Primary users of software. They will review assesments of student made by AI and give response. & These user use system on every assessment to check the student work very fast.Their feedback helps improve grading accuracy. \\
+\hline
+Students & The students  take feedback and their marks fairly . & The assignments and quizzes are checked by the software without any biasness and mistakes. \\
+\hline
+System Administrator & They for maintain and manage the system technical operation. & Givig Access of user accounts, make data secure, update is issues occur and fix technical issues. \\
+\hline
+Uni Management & They see the implementation and monitor, how the system work. & They check and balance of implementation and see that any rule of assessment not break. \\
+\hline
+Developers& They responsible for developing the web based software. & They code the software, integrate AI tools and functionalities. \\
+\hline
+Requirement Provider & RP provide the proper guidance and if any changes required. & Review the progress of the system and ensures the all the problems are fixed. \\
+\hline
+IT Department & They resposible of running software on network within the university. & Check the system runs smoothly on the network and provides technical support. \\
 \hline
 \end{tabular}
-\caption{Definitions, Acronyms, and Abbreviations}
-\label{tab:definitions}
-\end{table}
+\end{center}
 
-\subsection{References}
 
-\subsubsection{Standards}
-\begin{enumerate}
-    \item IEEE Std 830-1984: IEEE Recommended Practice for Software Requirements Specifications.
-    \item IEEE Std 1002-1987: IEEE Standard Taxonomy for Software Engineering Standards.
-\end{enumerate}
+% -------------------
+% Section 5: Software Development Methodology
+% -------------------
+\section{Software Development Methodology}
+We will use the \textbf{incremental software Development } for this project which allow this project to develop in a series .Each function is add one by one and after completion of one function, we move toward the next functionality. ensuring the testing , feedback and improvement after the completion of each functionality.
 
-\subsubsection{Technical Documentation}
-\begin{enumerate}
-    \item MongoDB Documentation: \url{https://www.mongodb.com/docs}
-    \item Express.js Documentation: \url{https://expressjs.com}
-    \item Node.js Documentation: \url{https://nodejs.org}
-\end{enumerate}
-
-\subsubsection{Development Tools}
-\begin{enumerate}
-    \item Visual Studio Code: \url{https://code.visualstudio.com}
-    \item GitHub Guide: \url{https://docs.github.com}
-\end{enumerate}
-
-\subsection{Overview}
-
-\subsubsection{Document Structure}
-This SRS document is organized as follows:
-\begin{enumerate}
-    \item Introduction
-    \item Overall Description
-    \item Specific Requirements
-    \item Appendices and References
-\end{enumerate}
-
-\subsubsection{Organization of the Document}
+\subsection*{Tentative Schedule}
 \begin{itemize}
-    \item Sections are numbered hierarchically for clarity.
-    \item Each section focuses on a specific system aspect, with subsections providing detailed explanations.
+    \item \textbf{Weeks 1–2:} Requirement gathering and analysis with RP.
+    \item \textbf{Weeks 3–4:} System design and prototype creation.
+    \item \textbf{Weeks 5–8:} Implementation of project, develop the project in multiple increments.
+    \item \textbf{Weeks 9–10:} Testing and evaluation.
+     \item \textbf{Weeks 11-12:} integration and documentation
 \end{itemize}
 
-\section{General Description}
+\subsection*{Project Timeline - Gantt Chart}
 
-\subsection{Product Perspective}
-The Fair and Unbiased Assessment System (FUAS) addresses key concerns of both students and instructors. Students often perceive bias in grading, which can erode trust in instructors. Conversely, instructors may face unfounded accusations of favoritism. FUAS resolves this trust issue by providing unbiased, AI-assisted evaluation of quizzes and assignments. The system can process handwritten assessments uploaded by students, evaluate them based on provided answer keys and logical reasoning, and generate detailed reports highlighting errors.
+\begin{center}
+\begin{ganttchart}[
+    hgrid,
+    vgrid,
+    x unit=0.95cm,
+    y unit title=0.8cm,
+    y unit chart=0.9cm,
+    title height=1,
+    bar height=0.6,
+    bar label font=\normalsize\color{white},
+    bar label node/.append style={align=center}
+]{1}{12}
+    
+    % Headers
+    \gantttitle{\textbf{Fair and Unbiased Assessment System - 2025}}{12} \\
+    \gantttitle{Quarter 1}{4}
+    \gantttitle{Quarter 2}{4}
+    \gantttitle{Quarter 3}{4} \\
+    \gantttitle{Jan}{1}
+    \gantttitle{Feb}{1}
+    \gantttitle{Mar}{1}
+    \gantttitle{Apr}{1}
+    \gantttitle{May}{1}
+    \gantttitle{Jun}{1}
+    \gantttitle{Jul}{1}
+    \gantttitle{Aug}{1}
+    \gantttitle{Sep}{1}
+    \gantttitle{Oct}{1}
+    \gantttitle{Nov}{1}
+    \gantttitle{Dec}{1} \\
+    
+    % Tasks with different colors
+    \ganttbar[bar/.append style={fill=cyan!70}, bar label font=\normalsize\color{black}]{Planning \& Analysis}{1}{2} \\
+    \ganttbar[bar/.append style={fill=magenta!70}, bar label font=\normalsize\color{black}]{System Design}{3}{4} \\
+    \ganttbar[bar/.append style={fill=yellow!70}, bar label font=\normalsize\color{black}]{Database Design}{3}{5} \\
+    \ganttbar[bar/.append style={fill=green!60}, bar label font=\normalsize\color{black}]{Frontend Development}{5}{8} \\
+    \ganttbar[bar/.append style={fill=orange!70}, bar label font=\normalsize\color{black}]{Backend Development}{6}{9} \\
+    \ganttbar[bar/.append style={fill=blue!60}, bar label font=\normalsize\color{black}]{AI Integration}{7}{9} \\
+    \ganttbar[bar/.append style={fill=purple!60}, bar label font=\normalsize\color{black}]{Testing \& QA}{9}{10} \\
+    \ganttbar[bar/.append style={fill=red!60}, bar label font=\normalsize\color{black}]{Deployment}{11}{12}
+    
+\end{ganttchart}
+\end{center}
 
-The system will be available as both a mobile application and a web-based platform, each serving the same functional role.
+\vspace{0.5cm}
 
-\subsubsection{System Context}
-The system interacts with three primary entities: students, instructors, and administrators. Each entity has its own interface and functionality according to their role.
-
-\subsubsection{User Interfaces}
+% -------------------
+% Section 6: Tools and Technologies
+% -------------------
+\section{Tools and Technologies}
 \begin{itemize}
-    \item \textbf{Mobile Interface:} Includes all features of the web interface plus an option to capture and upload images directly using the device camera.
-    \item \textbf{Web Interface:} Provides all functionalities except for the direct image capture feature available on mobile.
+    \item \textbf{Programming Languages:} Python, JavaScript
+    \item \textbf{Backend Framework:} Django
+    \item \textbf{Frontend Framework:} ReactJS
+    \item \textbf{Database:} MySQL
+    \item \textbf{Design Tools:} Figma
+    \item \textbf{Version Control:} GitHub
 \end{itemize}
 
-\subsubsection{Hardware Interfaces}
+% -------------------
+% Section 8: References
+% -------------------
+\section{References}
 \begin{itemize}
-    \item \textbf{Computing Devices:} Smartphones, laptops, desktops, and tablets used to interact with the system.
-    \item \textbf{Server / Web Host:} Requires sufficient processing capacity and memory to handle concurrent image uploads and assessment data.
+    \item [1] H. Kumar, "Queue Management Systems in Healthcare," \textit{International Journal of Information Systems}, vol. 15, no. 2, pp. 45–51, 2023.
+    \item [2] \href{https://www.ibm.com/cloud/learn/agile-methodology}{IBM: Agile Methodology Overview}.
+    \item [3] \href{https://www.djangoproject.com/}{Django Official Documentation}.
 \end{itemize}
 
-\subsubsection{Software Interfaces}
-\begin{itemize}
-    \item \textbf{Mark Assist Engine:} An AI-based evaluation component that grades assessments and highlights mistakes based on logical and critical thinking.
-    \item \textbf{Database System:} Stores uploaded images, extracted text, assessment metadata, and evaluation results securely.
-\end{itemize}
 
-\subsubsection{Communications Interfaces}
-\begin{itemize}
-    \item Secure network protocols manage communication between mobile and web frontends and backend services.
-    \item Standard web communication technologies support image uploads and retrieval of evaluation results.
-\end{itemize}
 
-\subsection{Product Functions}
-The primary functions of the system focus on what the system does rather than how it does it, which is detailed in the Functional Requirements section.
-
-\subsubsection{Data Capture and Digitization}
-The system accepts images of assessments in PDF or image formats. The AI tool extracts text from handwritten submissions for evaluation.
-
-\subsubsection{Assessment Evaluation and Scoring}
-The AI engine evaluates student responses against teacher-provided answer keys while considering critical thinking. Assessments are graded fairly and without bias.
-
-\subsubsection{Reporting and Analytics}
-The system automatically generates reports for students and instructors. Students view their own reports, while instructors access class-level analytics and summaries.
-
-\subsubsection{Course Management}
-Courses are assigned to instructors and students. The system supports different courses for different years and maintains appropriate course-instructor-student relationships.
-
-\subsection{User Characteristics}
-The system is designed specifically for educational use by students, instructors, and academic administrators, with functionality tailored to each role.
-
-\subsubsection{Students}
-Students upload images of assessments, receive reports with scores and feedback, and identify mistakes through the system-generated analysis.
-
-\subsubsection{Teachers}
-Teachers upload answer keys, and the system evaluates student submissions automatically. Reports show top, average, and lowest scores, as well as overall class performance.
-
-\subsubsection{Academic Administrators}
-Administrators manage course assignments, maintain student and instructor records, and assist users in case of credential loss or access issues.
-
-\subsection{General Constraints}
-
-\subsubsection{Regulatory and Policy Constraints}
-All student assessment data must comply with institutional and educational data protection policies, including access control, auditing, and retention rules.
-
-\subsubsection{Hardware Limitations}
-The system relies on mobile devices for image capture and servers for processing. Low-resolution images may affect assessment evaluation accuracy.
-
-\subsubsection{Interfaces to External Applications}
-FUAS does not rely on external applications; the AI evaluation tool is integrated within the system.
-
-\subsubsection{Parallel Operation Constraints}
-Multiple users may interact with the system simultaneously, including peak usage periods during assessment submissions.
-
-\subsubsection{Logging Constraints}
-System activities must be recorded to ensure traceability, accountability, and dispute resolution.
-
-\subsubsection{Control and Administration Constraints}
-Administrative tasks such as user management, course creation, and assessment configuration require role-based access control to maintain system integrity.
-
-\subsubsection{Safety and Security Considerations}
-All academic data must be protected from unauthorized access, misuse, and loss using encryption, secure storage, and controlled access.
-
-\subsection{Assumptions and Dependencies}
-
-\subsubsection{Handwriting Legibility Assumption}
-Student handwriting and image quality must meet a minimum standard for the AI tool to accurately process and evaluate assessments. Guidelines are provided to ensure proper image capture and legibility.
-
-\subsubsection{External AI System Dependency}
-The AI evaluation engine must be available and operational to process and evaluate assessments. Without it, the automated assessment functionality will be unavailable.
-\section{Specific Requirements}
-
-\subsection{Functional Requirements}
-
-%---------------------------
-% 3.1.1 Student Login
-%---------------------------
-\subsubsection{Student Login with Given Credentials}
-
-\paragraph{Introduction} 
-Defines how a student logs into the system using credentials provided by the institution. Access is allowed only after successful authentication.
-
-\paragraph{Inputs}
-\begin{itemize}
-    \item Student username or ID
-    \item Password
-\end{itemize}
-
-\paragraph{Processing}
-\begin{itemize}
-    \item Student enters username and password.
-    \item System verifies credentials from stored records.
-    \item If valid, the student is logged in.
-    \item If invalid, an error message is displayed.
-\end{itemize}
-
-\paragraph{Outputs}
-\begin{itemize}
-    \item Successful login confirmation
-    \item Access to student dashboard
-    \item Error message for invalid credentials
-\end{itemize}
-
-\paragraph{Performance Requirements}
-\begin{itemize}
-    \item Login should complete within 2–3 seconds.
-    \item Multiple students can log in simultaneously.
-\end{itemize}
-
-\paragraph{Design Constraints}
-\subparagraph{Standards Compliance} System should follow secure authentication standards.
-\subparagraph{Hardware Limitations} System performance may depend on internet speed and device capability.
-
-\paragraph{Attributes}
-\subparagraph{Security} Credentials must be protected from unauthorized access.
-\subparagraph{Maintainability} Login module should be easy to update without affecting other modules.
-
-\paragraph{Other Requirements}
-\subparagraph{Database} Student login details stored securely.
-\subparagraph{Operations} System administrators manage login permissions.
-\subparagraph{Site Adaptation} System supports login from different network environments.
-
-%---------------------------
-% 3.1.2 Uploading Quiz and Assignment Answer Images
-%---------------------------
-\subsubsection{Uploading Quiz and Assignment Answer Images}
-
-\paragraph{Introduction} Students can select a course, open the quiz/assignment upload page, and upload image files of handwritten answers.
-
-\paragraph{Inputs}
-\begin{itemize}
-    \item Student ID
-    \item Course selection
-    \item Quiz or assignment selection
-    \item Image files of answers
-\end{itemize}
-
-\paragraph{Processing}
-\begin{itemize}
-    \item System allows image uploads.
-    \item Verifies file format and deadline.
-    \item Valid files stored securely.
-    \item Invalid or late submissions generate an error.
-\end{itemize}
-
-\paragraph{Outputs}
-\begin{itemize}
-    \item Upload success confirmation
-    \item Stored answer files
-    \item Error messages if upload fails
-\end{itemize}
-
-\paragraph{Performance Requirements}
-\begin{itemize}
-    \item Upload completes within 3–5 seconds depending on file size.
-    \item Supports multiple concurrent uploads.
-\end{itemize}
-
-\paragraph{Design Constraints}
-\subparagraph{Standards Compliance} File handling follows storage and security guidelines.
-\subparagraph{Hardware Limitations} Upload speed may depend on device and internet quality.
-
-\paragraph{Attributes}
-\subparagraph{Security} Uploaded files protected from unauthorized access.
-\subparagraph{Maintainability} Supports future file formats.
-
-\paragraph{Other Requirements}
-\subparagraph{Database} Files stored securely.
-\subparagraph{Operations} System logs upload activity.
-\subparagraph{Site Adaptation} Supports classroom and remote environments.
-
-%---------------------------
-% 3.1.3 Viewing Quiz/Assignment Report
-%---------------------------
-\subsubsection{Viewing Quiz/Assignment Report and Class Performance Graph}
-
-\paragraph{Introduction} Students can view their performance report and class performance graph.
-
-\paragraph{Inputs}
-\begin{itemize}
-    \item Student ID
-    \item Selected quiz or assignment
-    \item System-generated evaluation data
-\end{itemize}
-
-\paragraph{Processing}
-\begin{itemize}
-    \item Retrieves student’s own performance report.
-    \item Retrieves class performance data.
-    \item Displays summary graph.
-\end{itemize}
-
-\paragraph{Outputs}
-\begin{itemize}
-    \item Student performance report
-    \item Class performance graph
-    \item Error messages if data unavailable
-\end{itemize}
-
-\paragraph{Performance Requirements} Reports load in 2–4 seconds; graphs display smoothly.
-
-\paragraph{Design Constraints}
-\subparagraph{Standards Compliance} Privacy and data protection standards followed.
-\subparagraph{Hardware Limitations} Graph rendering depends on device capability.
-
-\paragraph{Attributes}
-\subparagraph{Security} Students cannot access others’ reports.
-\subparagraph{Maintainability} Reporting module allows future enhancements.
-
-\paragraph{Other Requirements}
-\subparagraph{Database} Reports stored securely.
-\subparagraph{Operations} Tracks when reports are viewed.
-\subparagraph{Site Adaptation} Viewable from multiple devices/locations.
-
-%---------------------------
-% 3.1.4 Administrator Assign Courses
-%---------------------------
-\subsubsection{Administrator Assign Courses and Create Faculty Credentials}
-
-\paragraph{Introduction} Administrator assigns courses to faculty and generates credentials.
-
-\paragraph{Inputs}
-\begin{itemize}
-    \item Faculty details (name, email, department)
-    \item Course information (code, name, semester)
-\end{itemize}
-
-\paragraph{Processing}
-\begin{itemize}
-    \item Select ``Assign Courses to Faculty''.
-    \item Associate selected courses with faculty.
-    \item Generate secure login credentials.
-\end{itemize}
-
-\paragraph{Outputs}
-\begin{itemize}
-    \item Confirmation of course assignment and credentials
-    \item Error messages if invalid
-\end{itemize}
-
-\paragraph{Performance Requirements} Completion within 2–3 seconds per faculty.
-
-\paragraph{Design Constraints}
-\subparagraph{Standards Compliance} AES-256 encryption for credentials.
-\subparagraph{Hardware Limitations} Server supports up to 500 concurrent faculty accounts.
-
-\paragraph{Attributes}
-\subparagraph{Security} Only administrators can assign/create credentials.
-\subparagraph{Maintainability} Easy to update assignment logic.
-
-\paragraph{Other Requirements} Records stored securely in database.
-
-%---------------------------
-% 3.1.5 Administrator Enroll Students
-%---------------------------
-\subsubsection{Administrator Enroll Students and Create Credentials}
-
-\paragraph{Introduction} Administrator enrolls students and generates login credentials.
-
-\paragraph{Inputs}
-\begin{itemize}
-    \item Student details (name, email, registration number)
-    \item Course selection
-\end{itemize}
-
-\paragraph{Processing}
-\begin{itemize}
-    \item Enroll students in courses.
-    \item Generate credentials automatically.
-\end{itemize}
-
-\paragraph{Outputs}
-\begin{itemize}
-    \item Enrollment confirmation
-    \item Credential creation confirmation
-    \item Error if duplicate enrollment
-\end{itemize}
-
-\paragraph{Performance Requirements} Completion within 2–3 seconds per student.
-
-\paragraph{Design Constraints}
-\subparagraph{Standards Compliance} Secure password and data storage.
-\subparagraph{Hardware Limitations} Support batch enrollment of 500 students.
-
-\paragraph{Attributes}
-\subparagraph{Security} Credentials confidential to students.
-\subparagraph{Maintainability} Bulk enrollment easily updated.
-
-\paragraph{Other Requirements} Database stores enrollment/credential records securely.
-
-%---------------------------
-% 3.1.6 Administrator Credential Update
-%---------------------------
-\subsubsection{Administrator Credential Update}
-
-\paragraph{Introduction} Administrator updates credentials if lost or forgotten.
-
-\paragraph{Inputs}
-\begin{itemize}
-    \item Username or email
-    \item New password or credential details
-\end{itemize}
-
-\paragraph{Processing}
-\begin{itemize}
-    \item Verify user identity
-    \item Update credential in database
-    \item Send confirmation
-\end{itemize}
-
-\paragraph{Outputs}
-\begin{itemize}
-    \item Confirmation of successful update
-    \item Error if verification fails
-\end{itemize}
-
-\paragraph{Performance Requirements} Completion under 2 seconds.
-
-\paragraph{Design Constraints} Admin-only access, encrypted storage.
-
-\paragraph{Attributes}
-\subparagraph{Security} Only authorized admin updates credentials.
-\subparagraph{Maintainability} Audit logs maintained.
-
-\paragraph{Other Requirements} Update records in User Credentials table.
-
-%---------------------------
-% 3.1.7 Teacher Login and Dashboard
-%---------------------------
-\subsubsection{Teacher Login and Dashboard}
-
-\paragraph{Introduction} Teachers log in and view assigned courses.
-
-\paragraph{Inputs} Teacher username and password.
-
-\paragraph{Processing} Authenticate credentials and display assigned courses.
-
-\paragraph{Outputs} Teacher dashboard, login confirmation or error.
-
-\paragraph{Performance Requirements} Authentication within 1–2 seconds; dashboard loads within 2 seconds per course.
-
-\paragraph{Design Constraints} Web browser compatibility; secure HTTPS login.
-
-\paragraph{Attributes} Session timeout for security; modular dashboard for maintainability.
-
-\paragraph{Other Requirements} Database links teacher table with course assignment.
-
-%---------------------------
-% 3.1.8 Teacher Create Assessment
-%---------------------------
-\subsubsection{Teacher Create Assessment}
-
-\paragraph{Introduction} Teachers create assessments, set portal times, and enable student uploads.
-
-\paragraph{Inputs}
-\begin{itemize}
-    \item Assessment number
-    \item Portal start and end times
-    \item Checkbox for student uploads
-\end{itemize}
-
-\paragraph{Processing}
-\begin{itemize}
-    \item Select course, create assessment
-    \item Popup collects details
-    \item Activate submission portal if enabled
-\end{itemize}
-
-\paragraph{Outputs} Confirmation of creation; active submission portal.
-
-\paragraph{Performance Requirements} Complete in under 3 seconds; support 200+ simultaneous submissions.
-
-\paragraph{Design Constraints} Popup UI follows accessibility guidelines; server handles real-time uploads.
-
-\paragraph{Attributes} Only authorized teachers can create assessments; modular for maintainability.
-
-\paragraph{Other Requirements} Database stores assessments and portals.
-
-%---------------------------
-% 3.1.9 Automated Assessment Checking
-%---------------------------
-\subsubsection{Automated Assessment Checking and Report Generation}
-
-\paragraph{Introduction} System automatically checks student assessments and generates reports.
-
-\paragraph{Inputs} Teacher-uploaded keys; student submissions.
-
-\paragraph{Processing} Compare answers with keys; generate student and teacher reports.
-
-\paragraph{Outputs} Individual student reports; class performance reports.
-
-\paragraph{Performance Requirements} 50 submissions checked in 5 seconds; 100 reports in 10 seconds.
-
-\paragraph{Design Constraints} Reports in PDF/HTML; server supports bulk processing.
-
-\paragraph{Attributes} Accessible only to authorized users; modular marking logic.
-
-\paragraph{Other Requirements} Database tables: AnswerKeys, Student\_Submissions, Reports.
-
-%---------------------------
-% 3.1.10 Teacher Control Over Student Marks Visibility
-%---------------------------
-\subsubsection{Teacher Control Over Student Marks Visibility}
-
-\paragraph{Introduction} Teachers choose whether students can see their marks.
-
-\paragraph{Inputs} Teacher selection (show/hide marks).
-
-\paragraph{Processing} Record teacher preference; control visibility in dashboard.
-
-\paragraph{Outputs} Updated student dashboard; confirmation to teacher.
-
-\paragraph{Performance Requirements} Changes reflected within 1–2 seconds.
-
-\paragraph{Design Constraints} Only authorized teachers can modify; maintain report integrity.
-
-\paragraph{Attributes} Prevent unauthorized access; easily toggle multiple assessments.
-
-\paragraph{Other Requirements} Database field indicates visibility status.
-\subsection{External Interface Requirements}
-
-\subsubsection{User Interfaces}
-The system shall provide a user-friendly web-based graphical user interface accessible via standard web browsers. For mobile devices, a responsive interface shall adapt to screen size. The interface shall be intuitive such that users can understand the system within 2--3 uses. Separate dashboards shall be provided for faculty, administrators, and students, showing role-specific functionalities.
-
-\paragraph{ Performance Requirements}
-\begin{itemize}
-    \item User interfaces shall load within 2--3 seconds under normal network conditions.
-    \item The system shall handle multiple users simultaneously without performance degradation.
-    \item The system shall be operational 99.9\% of the time.
-    \item Teacher and student logins shall authenticate within 2 seconds.
-    \item Assessment submission portals shall activate within 1 second of creation.
-    \item CPU usage shall not exceed 80\% under peak load conditions.
-    \item Memory consumption shall be limited to 50 MB per active session.
-    \item The system shall automatically recover from temporary server or network failures within 1 minute without data loss.
-\end{itemize}
-
-\paragraph{ Design Constraints}
-
-\subparagraph{ Standards Compliance}
-\begin{itemize}
-    \item The user interface shall comply with IEEE software documentation standards.
-    \item Basic web accessibility standards shall be followed.
-    \item Consistent layout, fonts, and color schemes shall be maintained.
-    \item The system shall adhere to international standards for software quality, including usability, reliability, and maintainability.
-    \item Secure communication protocols shall be used for all data transmission.
-    \item Information security management standards shall be followed.
-\end{itemize}
-
-\subparagraph{3.2.2.2 Hardware Limitations}
-\begin{itemize}
-    \item Hardware shall allow upgrades to CPU, RAM, and storage for increased student load or additional courses.
-    \item Minimum 500 GB storage for student submissions, assessments, and reports.
-    \item Interface shall operate on standard computers, tablets, and smartphones.
-    \item No specialized display or input hardware shall be required.
-    \item Minimum 16 GB RAM to support database operations, AI processing, and multiple sessions.
-\end{itemize}
-
-\paragraph{ Attributes}
-
-\subparagraph{ Security}
-\begin{itemize}
-    \item All users shall authenticate using a unique username and password.
-    \item Passwords shall be stored in encrypted form using industry-standard encryption.
-    \item Only administrators may create, update, or reset user credentials.
-    \item Student assessment data, marks, and reports shall be accessible only to authorized users.
-    \item Backups shall be securely stored and protected against unauthorized access.
-\end{itemize}
-
-\subparagraph{ Maintainability}
-\begin{itemize}
-    \item System shall maintain error and activity logs for troubleshooting.
-    \item System updates shall be possible with minimal downtime.
-    \item Fault isolation within modules to prevent system-wide failures.
-    \item User interface components shall be modular and reusable.
-    \item UI updates and enhancements shall be easily implementable without affecting core functionality.
-\end{itemize}
-
-\paragraph{ Other Requirements}
-
-\subparagraph{ Database}
-\begin{itemize}
-    \item Store course details, faculty-course assignments, and student enrollments.
-    \item Store assessment details, including number, course association, submission timing, and upload permissions.
-    \item Store teacher-uploaded answer keys securely for automated evaluation.
-    \item Support configurable data retention policies for archiving old assessments and reports.
-\end{itemize}
-
-\subparagraph{Operations}
-\begin{itemize}
-    \item Administrators shall manage users and system settings.
-    \item Teachers and students shall perform academic activities via the interface.
-\end{itemize}
-
-\subparagraph{ Site Adaptation}
-\begin{itemize}
-    \item Support deployment in different institutional environments, including on-premise and cloud.
-    \item Operate effectively under varying network conditions (LAN, internet), with configurable network settings.
-    \item Allow customization of academic terms, grading schemes, and course structures.
-    \item Support configuration for different languages, time zones, and date formats.
-    \item Allow site-specific configuration of data storage locations and backup policies.
-\end{itemize}
-
-\paragraph{Hardware Interfaces}
-\begin{itemize}
-    \item Operate on standard computing devices: desktops, laptops, tablets, and smartphones.
-    \item Input devices: keyboard, mouse, and touch input.
-    \item Output devices: standard display screens.
-    \item System shall function on devices with internet connectivity.
-    \item Mobile cameras shall be supported for image uploads.
-    \item System shall detect and handle hardware-related errors.
-\end{itemize}
-
-\paragraph{Software Interfaces}
-\begin{itemize}
-    \item Operate on Linux and Windows server OS without OS-specific modifications.
-    \item Support web browsers: Chrome, Firefox, Edge.
-    \item Backend server for processing business logic.
-    \item Database management system for storing user and academic data.
-    \item AI evaluation module for automated answer assessment.
-    \item All software interfaces shall follow secure API communication standards.
-\end{itemize}
-
-\paragraph{Communications Interfaces}
-\begin{itemize}
-    \item Use HTTP/HTTPS protocols for communication.
-    \item HTTPS shall be used for transmitting sensitive data.
-    \item Support standard internet connections.
-    \item Client-server communication shall be reliable and secure.
-    \item Use TCP/IP as the underlying network protocol.
-    \item Provide standardized error codes and messages for communication failures.
-\end{itemize}
-
-\section{Appendix}
-
-%---------------------------
-% First Image with Heading
-%---------------------------
-\subsection{Use Case Diagram}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\textwidth]{USE CASE.png} % replace with your image path
-    \caption{UseCase}
-    \label{fig:first_image}
-\end{figure}
-
-%---------------------------
-% Second Image with Heading
-%---------------------------
-\subsection{Context Diagram}
-\begin{figure}[h!]
-    \centering
-    \includegraphics[width=0.7\textwidth]{DFD .drawio.png} % replace with your image path
-    \caption{DFD Diagram Level 0}
-    \label{fig:second_image}
-\end{figure}
 
 \end{document}
