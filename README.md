@@ -59,6 +59,7 @@ The project uses **Incremental Software methodology**, allowing iterative develo
   - Ahmad Ali – bscs24f02@namal.edu.pk  
   - Junaid Gondal – bscs24f28@namal.edu.pk
 - **Submission Date:** November 9, 2025
-
+## Meeting Minutes Google Sheet Link
+**
 ## Figma Design Link
  **https://www.figma.com/design/N31rKyv6Wrl5IGfSwzfX7F/Abdul-Rehman-s-team-library?node-id=0-1&t=pRAo4BFcGFAE5w5c-1
