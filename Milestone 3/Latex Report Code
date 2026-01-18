@@ -298,6 +298,24 @@ The class diagram represents the static structure of the system and relationship
     \includegraphics[width=0.8\textwidth]{class.jpeg}
     \caption{Class Diagram of FUAS}
 \end{figure}
+\subsection{Component Diagram}
+
+The component diagram presents the high-level architectural organization of the system.
+
+\begin{itemize}
+    \item User Interface
+    \item Authentication Module
+    \item Assessment Management Module
+    \item Evaluation Engine
+    \item Reporting Module
+    \item Database
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{Comp.jpeg}
+    \caption{Component Diagram of FUAS}
+\end{figure}
 
 
 
