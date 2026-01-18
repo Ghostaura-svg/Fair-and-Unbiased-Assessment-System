@@ -74,4 +74,10 @@
 
 \tableofcontents
 \newpage
+\section{Introduction}
+
+As part of Project Milestone 3, the \textbf{System Design Report} for the Fair and Unbiased Assessment System (FUAS) is presented in this document. This milestone aims to create a comprehensive and organized system design based on the approved requirements specified in the Software Requirements Specification (SRS).
+
+The report describes how various users operate the system, how data moves through the system, and how the system's components interact. Every design component follows carefully to the scope specified in the SRS and does not add any extra or irrelevant features.
+
 
