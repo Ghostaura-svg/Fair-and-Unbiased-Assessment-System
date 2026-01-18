@@ -103,6 +103,34 @@ Performance constraints, security requirements, and institutional policies all l
     \item Secure storage of credentials and assessment data
     \item Support for concurrent users
 \end{itemize}
+\section{Key Design Decisions}
+
+Several design decisions were made to ensure system reliability and fairness. A layered architecture was selected to separate concerns and improve maintainability. A centralized evaluation engine ensures unbiased grading, while role specific dashboards enhance usability.
+
+\begin{itemize}
+    \item Layered system architecture
+    \item Centralized automated evaluation engine
+    \item Role-based dashboards
+    \item Encrypted authentication mechanisms
+\end{itemize}
+
+%------------------ System Design Diagrams ------------------
+\section{System Design Diagrams}
+\subsection{Use Case Diagram}
+The use case diagram illustrates the core functionalities of the Fair \& Unbiased Assessment System (FUAS) for three main actors:
+
+\textbf{Key Points}
+\begin{itemize}
+    \item Students can upload answers, view reports, and see class performance.
+    \item Teachers create assessments, upload answer keys, generate reports, and control marks visibility.
+    \item Administrators manage user credentials, enroll students, and assign courses.
+    \item System relationships show dependencies (include) and optional features (extend).
+\end{itemize}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{USE CASE.png}
+    \caption{DFD Level 0 of Fair and Unbiased Assessment System}
+\end{figure}
 \subsection{DFD Level 0}
 
 The Level 0 Data Flow Diagram presents the system as a single process interacting with external entities. It highlights the system boundary and major data exchanges without internal details.
