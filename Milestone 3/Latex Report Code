@@ -316,6 +316,25 @@ The component diagram presents the high-level architectural organization of the 
     \includegraphics[width=0.8\textwidth]{Comp.jpeg}
     \caption{Component Diagram of FUAS}
 \end{figure}
+\section{Requirements–Design Traceability Table}
+
+\begin{longtable}{|p{3cm}|p{7cm}|p{4cm}|}
+\hline
+\textbf{Requirement ID} & \textbf{Description} & \textbf{Design Artifact} \\ \hline
+FR-1 & Student Login & DFD, Student Sequence Diagram \\ \hline
+FR-2 & Upload Assessment Images & DFD Level 1, Activity Diagram \\ \hline
+FR-3 & View Reports & Class Diagram, Sequence Diagram \\ \hline
+FR-4 & Create Assessment & Teacher Sequence Diagram \\ \hline
+FR-5 & Automated Evaluation & Component Diagram \\ \hline
+FR-6 & User and Course Management & Admin Sequence Diagram \\ \hline
+\end{longtable}
+
+%------------------ Conclusion ------------------
+\section{Conclusion}
+
+A thorough system design for the Fair and Unbiased Assessment System is presented in this report. Every design component is taken straight from the SRS and stays inside the project's specified parameters. Fairness, security, scalability, and maintainability are all guaranteed by the design, which offers a solid basis for implementation in upcoming milestones.
+
+\end{document}
 
 
 
