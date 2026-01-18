@@ -222,6 +222,54 @@ configuration, user management, and monitoring.
 \caption{Administrator Activity Diagram of the Fair and Unbiased Assessment System}
 \label{fig:admin-activity}
 \end{figure}
+\subsection{Sequence Diagrams}
+
+Sequence diagrams describe the interaction between users and system components over time.The Student Sequence Diagram shows authentication, assessment upload, storage, automated evaluation, and report viewing.
+The Teacher Sequence Diagram represents assessment creation, answer key upload, triggering evaluation, and viewing class reports.
+The Administrator Sequence Diagram demonstrates credential management and course assignment processes.
+
+These diagrams ensure clarity in message flow and system response for each user role.
+
+\begin{itemize}
+    \item Student sequence
+    \item Teacher sequence
+    \item Administrator sequence
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{SE st.jpeg}
+    \caption{Student Sequence Diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{SE .jpeg}
+    \caption{Teacher Sequence Diagram}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{SE admin.jpeg}
+    \caption{Administrator Sequence Diagram}
+\end{figure}
+
+%------------------
+\subsection{Class Diagram}
+
+The class diagram represents the static structure of the system and relationships among system entities.
+
+\begin{itemize}
+    \item User, Student, Teacher, Administrator
+    \item Course, Assessment, Submission
+    \item Report, EvaluationEngine
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{class.jpeg}
+    \caption{Class Diagram of FUAS}
+\end{figure}
 
 
 
