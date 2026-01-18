@@ -79,5 +79,29 @@
 As part of Project Milestone 3, the \textbf{System Design Report} for the Fair and Unbiased Assessment System (FUAS) is presented in this document. This milestone aims to create a comprehensive and organized system design based on the approved requirements specified in the Software Requirements Specification (SRS).
 
 The report describes how various users operate the system, how data moves through the system, and how the system's components interact. Every design component follows carefully to the scope specified in the SRS and does not add any extra or irrelevant features.
+\section{Design Assumptions and Constraints}
+
+\subsection{Design Assumptions}
+
+Realistic assumptions derived from the SRS form the basis of the system design. Users are presumed to be familiar with websites. In order to facilitate automated evaluation, student submissions must be reasonably readable. During assessment checking, it is assumed that the AI evaluation engine is accessible.
+
+\begin{itemize}
+    \item Users possess basic computer literacy
+    \item Handwritten submissions are readable in \textbf{PDF files} 
+    \item AI evaluation engine remains operational
+    \item Internet connectivity is available
+    \item Teachers upload correct answer keys
+\end{itemize}
+
+\subsection{Design Constraints}
+
+Performance constraints, security requirements, and institutional policies all limit the design. The system must support multiple users during periods of high usage while guarantees safe data handling and restricted access.
+
+\begin{itemize}
+    \item Compliance with institutional data protection policies
+    \item Role Based Access Control 
+    \item Secure storage of credentials and assessment data
+    \item Support for concurrent users
+\end{itemize}
 
 
