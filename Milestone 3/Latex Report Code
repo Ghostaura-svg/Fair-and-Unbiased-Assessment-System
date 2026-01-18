@@ -103,5 +103,21 @@ Performance constraints, security requirements, and institutional policies all l
     \item Secure storage of credentials and assessment data
     \item Support for concurrent users
 \end{itemize}
+\subsection{DFD Level 0}
+
+The Level 0 Data Flow Diagram presents the system as a single process interacting with external entities. It highlights the system boundary and major data exchanges without internal details.
+
+\begin{itemize}
+    \item External Entities: Student, Teacher, Administrator
+    \item Central Process: FUAS
+    \item Data Flows: Credentials, submissions, reports etc.
+\end{itemize}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\textwidth]{DFD0.drawio.png}
+    \caption{DFD Level 0 of Fair and Unbiased Assessment System}
+\end{figure}
+
 
 
