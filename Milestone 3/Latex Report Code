@@ -316,17 +316,92 @@ The component diagram presents the high-level architectural organization of the 
     \includegraphics[width=0.8\textwidth]{Comp.jpeg}
     \caption{Component Diagram of FUAS}
 \end{figure}
+%------------------ Traceability ------------------
 \section{Requirements–Design Traceability Table}
 
-\begin{longtable}{|p{3cm}|p{7cm}|p{4cm}|}
+\begin{longtable}{|p{2.5cm}|p{6cm}|p{4cm}|}
 \hline
 \textbf{Requirement ID} & \textbf{Description} & \textbf{Design Artifact} \\ \hline
-FR-1 & Student Login & DFD, Student Sequence Diagram \\ \hline
-FR-2 & Upload Assessment Images & DFD Level 1, Activity Diagram \\ \hline
-FR-3 & View Reports & Class Diagram, Sequence Diagram \\ \hline
-FR-4 & Create Assessment & Teacher Sequence Diagram \\ \hline
-FR-5 & Automated Evaluation & Component Diagram \\ \hline
-FR-6 & User and Course Management & Admin Sequence Diagram \\ \hline
+\endfirsthead
+
+\hline
+\textbf{Requirement ID} & \textbf{Description} & \textbf{Design Artifact} \\ \hline
+\endhead
+
+\hline
+\endfoot
+
+\hline
+\endlastfoot
+
+% ============ AUTHENTICATION & USER MANAGEMENT ============
+FR-1 & User Authentication (Student, Teacher, Administrator) & Use Case Diagram, DFD Level 0, DFD Level 1, Component Diagram, Student Sequence Diagram, Teacher Sequence Diagram, Administrator Sequence Diagram, Student Activity Diagram, Teacher Activity Diagram, Administrator Activity Diagram \\ \hline
+
+FR-2 & Student Login with Registration Number and Password & Use Case Diagram, Student Sequence Diagram, Student Activity Diagram, Class Diagram, Component Diagram \\ \hline
+
+FR-3 & Teacher Login with Email and Password & Use Case Diagram, Teacher Sequence Diagram, Teacher Activity Diagram, Class Diagram, Component Diagram \\ \hline
+
+FR-4 & Administrator Login with Admin Credentials & Use Case Diagram, Administrator Sequence Diagram, Administrator Activity Diagram, Class Diagram, Component Diagram \\ \hline
+
+FR-5 & Create User Credentials (Administrator) & Use Case Diagram, Administrator Sequence Diagram, Administrator Activity Diagram, DFD Level 1, Component Diagram \\ \hline
+
+FR-6 & Update User Credentials (Administrator) & Use Case Diagram, Administrator Sequence Diagram, Administrator Activity Diagram, DFD Level 1, Component Diagram \\ \hline
+
+% ============ COURSE MANAGEMENT ============
+FR-7 & Enroll Students in Courses (Administrator) & Use Case Diagram, Administrator Sequence Diagram, Administrator Activity Diagram, DFD Level 1, Component Diagram \\ \hline
+
+FR-8 & Assign Courses to Teachers (Administrator) & Use Case Diagram, Administrator Sequence Diagram, Administrator Activity Diagram, DFD Level 1, Component Diagram, Class Diagram \\ \hline
+
+FR-9 & View Assigned Courses (Student \& Teacher) & Use Case Diagram, Student Activity Diagram, Teacher Activity Diagram, Class Diagram, DFD Level 1 \\ \hline
+
+% ============ ASSESSMENT MANAGEMENT ============
+FR-10 & Create Assessment (Teacher) & Use Case Diagram, Teacher Sequence Diagram, Teacher Activity Diagram, DFD Level 1, Component Diagram, Class Diagram \\ \hline
+
+FR-11 & Configure Submission Portal Timing (Teacher) & Use Case Diagram, Teacher Activity Diagram, Teacher Sequence Diagram, Component Diagram, Class Diagram \\ \hline
+
+FR-12 & Upload Answer Key (Teacher) & Use Case Diagram, Teacher Sequence Diagram, Teacher Activity Diagram, DFD Level 1, Component Diagram, Class Diagram \\ \hline
+
+FR-13 & Enable/Disable Student Uploads (Teacher) & Use Case Diagram, Teacher Activity Diagram, Class Diagram \\ \hline
+
+% ============ SUBMISSION HANDLING ============
+FR-14 & Upload Assessment Answers (Student - PDF/Image) & Use Case Diagram, Student Sequence Diagram, Student Activity Diagram, DFD Level 0, DFD Level 1, Component Diagram, Class Diagram \\ \hline
+
+FR-15 & Validate Submission (System) & Use Case Diagram, Student Sequence Diagram, Student Activity Diagram, DFD Level 1, Component Diagram \\ \hline
+
+FR-16 & Store Student Submissions Securely & DFD Level 1, Student Sequence Diagram, Component Diagram, Class Diagram \\ \hline
+
+% ============ AUTOMATED EVALUATION ============
+FR-17 & Automated Assessment Checking (AI Engine) & Use Case Diagram, DFD Level 1, Student Sequence Diagram, Teacher Sequence Diagram, Component Diagram, Class Diagram \\ \hline
+
+FR-18 & Compare Student Answers with Answer Key & Component Diagram, Class Diagram, DFD Level 1 \\ \hline
+
+FR-19 & Calculate Scores and Marks & DFD Level 1, Component Diagram, Class Diagram, Student Sequence Diagram \\ \hline
+
+% ============ REPORTING & ANALYTICS ============
+FR-20 & Generate Student Report & Use Case Diagram, Student Sequence Diagram, Student Activity Diagram, DFD Level 1, Component Diagram, Class Diagram \\ \hline
+
+FR-21 & Generate Teacher Report & Use Case Diagram, Teacher Sequence Diagram, Teacher Activity Diagram, DFD Level 1, Component Diagram \\ \hline
+
+FR-22 & View Assessment Report (Student) & Use Case Diagram, Student Sequence Diagram, Student Activity Diagram, DFD Level 0, Class Diagram \\ \hline
+
+FR-23 & View Class Performance (Student) & Use Case Diagram, Student Sequence Diagram, Student Activity Diagram, Class Diagram \\ \hline
+
+FR-24 & View Class Report (Teacher) & Use Case Diagram, Teacher Sequence Diagram, Teacher Activity Diagram, DFD Level 1, Component Diagram \\ \hline
+
+FR-25 & Highlight Mistakes in Student Submission & Use Case Diagram, Class Diagram, Component Diagram \\ \hline
+
+FR-26 & Control Marks Visibility (Teacher) & Use Case Diagram, Teacher Activity Diagram, Teacher Sequence Diagram, Class Diagram \\ \hline
+
+% ============ SYSTEM OPERATIONS ============
+FR-27 & Secure Data Storage (Credentials, Submissions, Reports) & DFD Level 1, Component Diagram, Class Diagram \\ \hline
+
+FR-28 & Role-Based Access Control & Component Diagram, Class Diagram, All Sequence Diagrams \\ \hline
+
+FR-29 & Logout Functionality (All Users) & Use Case Diagram, Student Activity Diagram, Teacher Activity Diagram, Administrator Activity Diagram \\ \hline
+
+FR-30 & Dashboard Access (Student, Teacher, Administrator) & DFD Level 0, Student Sequence Diagram, Teacher Sequence Diagram, Administrator Sequence Diagram, All Activity Diagrams \\ \hline
+
+
 \end{longtable}
 
 %------------------ Conclusion ------------------
