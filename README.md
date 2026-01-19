@@ -49,7 +49,12 @@ The project uses **Incremental Software methodology**, allowing iterative develo
 - **Weeks 9–10:** Testing, evaluation, and documentation
 
 ---
+## Meeting Minutes Google Sheet Link
+**https://docs.google.com/spreadsheets/d/1-d0xnH4mQQOcMRUhwZXkGxccYi9RMYkxIe8fBq_9LVo/edit?usp=sharing
+## Figma Design Link
+ **https://www.figma.com/design/N31rKyv6Wrl5IGfSwzfX7F/Abdul-Rehman-s-team-library?node-id=0-1&t=pRAo4BFcGFAE5w5c-1
 
+---
 
 ## Submission
 - **University:** Namal University, Mianwali
@@ -59,7 +64,3 @@ The project uses **Incremental Software methodology**, allowing iterative develo
   - Ahmad Ali – bscs24f02@namal.edu.pk  
   - Junaid Gondal – bscs24f28@namal.edu.pk
 - **Submission Date:** November 9, 2025
-## Meeting Minutes Google Sheet Link
-**https://docs.google.com/spreadsheets/d/1-d0xnH4mQQOcMRUhwZXkGxccYi9RMYkxIe8fBq_9LVo/edit?usp=sharing
-## Figma Design Link
- **https://www.figma.com/design/N31rKyv6Wrl5IGfSwzfX7F/Abdul-Rehman-s-team-library?node-id=0-1&t=pRAo4BFcGFAE5w5c-1
