@@ -1,113 +1,119 @@
-Fair and Unbiased Assessment System
-Project Overview
+# Fair and Unbiased Assessment System
 
-The Fair and Unbiased Assessment System is an AI-based academic assessment and report generation system designed for educational institutions. The purpose of this project is to automate the assessment evaluation process, reduce human bias in grading, and provide detailed academic performance analysis for both students and faculty members.
+## Project Overview
+The **Fair and Unbiased Assessment System** is an AI-based academic assessment and report generation system designed for universities and educational institutions. The system automates assessment management, evaluation workflows, and academic reporting while reducing manual effort and grading bias.
 
-The system allows students to upload assessment files in PDF format, while faculty members can manage assessments, monitor class performance, and view generated reports. Artificial intelligence is used to evaluate assessments and generate performance reports automatically.
+Students can submit assessments digitally, faculty members can manage courses and evaluations, and the system can generate AI-assisted academic performance reports.
 
-This project mainly focuses on database design, academic workflow management, assessment tracking, enrollment management, and report generation within a university environment.
+This project focuses on:
+- Academic workflow management
+- Assessment and evaluation automation
+- Database design and normalization
+- Enrollment and teaching assignment management
+- AI-based report generation
 
-Features
-User authentication and management
-Student and faculty management
-Department and program management
-Batch, semester, session, and section handling
-Course and teaching assignment management
-Student enrollment management
-Assessment creation and management
-Student submission handling
-AI-based evaluation processing
-Student performance reports
-Class performance reports
-Historical academic record preservation
-Activity logging and monitoring
-System Modules
-User Management
+---
 
-Manages user accounts, authentication, and role-based access for students and faculty members.
+## Features
 
-Academic Management
+- User authentication and management
+- Student and faculty management
+- Department and program management
+- Batch, semester, session, and section handling
+- Course and teaching assignment management
+- Student enrollment management
+- Assessment creation and tracking
+- Student submission handling
+- AI-generated evaluation processing
+- Student and class performance reports
+- Historical academic record management
+- Activity logging and monitoring
 
-Handles departments, programs, batches, semesters, sessions, sections, and course structures.
+---
 
-Enrollment Management
+## System Modules
 
-Maintains student enrollment history, repeat-course handling, and course registration workflows.
+### User Management
+Handles authentication and role-based access for students and faculty members.
 
-Assessment Management
+### Academic Management
+Manages departments, programs, batches, semesters, sessions, sections, and courses.
 
-Allows faculty members to create quizzes, assignments, and assessment records.
+### Enrollment Management
+Maintains student enrollment history and repeat-course handling.
 
-Submission & Evaluation
+### Assessment Management
+Allows faculty members to create and manage assessments.
 
-Stores student submissions and AI-generated evaluation results including marks, percentages, and feedback.
+### Submission & Evaluation
+Stores student submissions and AI-generated evaluation results.
 
-Report Generation
-
+### Report Generation
 Generates:
+- Student reports
+- Class performance reports
+- AI-generated evaluation summaries
 
-Student assessment reports
-Class performance reports
-AI-generated evaluation summaries
-Technologies Used
-Technology	Purpose
-MySQL	Database Management System
-MySQL Workbench	ERD and database design
-SQL	Database querying and management
-HTML/CSS/JavaScript	Frontend development
-GitHub	Version control and collaboration
-AI Tools	Automated assessment evaluation
-Database Design Highlights
+---
+
+## Technologies Used
+
+| Technology | Purpose |
+|------------|---------|
+| MySQL | Database Management |
+| MySQL Workbench | ERD/EERD Design |
+| SQL | Database Querying |
+| HTML/CSS/JavaScript | Frontend Development |
+| GitHub | Version Control |
+| AI Tools | Automated Evaluation |
+
+---
+
+## Database Design Highlights
 
 The database system is designed using:
+- ERD/EERD modeling
+- Normalization techniques
+- Supertype/Subtype relationships
+- Associative entities
+- Proper cardinalities and participation constraints
 
-ERD/EERD modeling
-Normalization techniques
-Supertype/Subtype relationships
-Associative entities
-Proper cardinalities and participation constraints
-Main Entities
-User
-Student
-Faculty
-Department
-Program
-Batch
-Session
-Semester
-Section
-Course
-Teacher_Assignment
-Enrollment
-Assessment
-Submission
-Evaluation
-Business Objectives
-Reduce bias in academic assessment
-Automate evaluation workflows
-Improve academic data management
-Maintain historical academic records
-Support scalable university workflows
-Generate automated performance reports
-Repository Structure
+### Main Entities
+- User
+- Student
+- Faculty
+- Department
+- Program
+- Batch
+- Semester
+- Session
+- Section
+- Course
+- Teacher_Assignment
+- Enrollment
+- Assessment
+- Submission
+- Evaluation
+
+---
+
+## Business Objectives
+
+- Reduce bias in academic assessment
+- Automate evaluation workflows
+- Improve academic data management
+- Maintain historical academic records
+- Support scalable university workflows
+- Generate automated reports
+
+---
+
+## Repository Structure
+
+```bash
 ├── ERD/
 ├── Documentation/
 ├── SQL Scripts/
 ├── Reports/
 ├── Images/
 └── README.md
-Future Improvements
-Full AI integration for answer checking
-Web-based dashboard
-Real-time analytics
-Notification system
-Role-based authorization
-Cloud database deployment
-Team Members
-Name	Role
-Abdul Rehman	Database Design & Backend
-Ahmad Ali	Documentation & System Design
-Junaid Gondal	Academic Workflow & ERD Design
-License
-
-This project is developed for academic and educational purposes only.
