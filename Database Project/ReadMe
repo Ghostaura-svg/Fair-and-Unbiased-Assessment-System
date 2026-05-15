@@ -1,0 +1,113 @@
+Fair and Unbiased Assessment System
+Project Overview
+
+The Fair and Unbiased Assessment System is an AI-based academic assessment and report generation system designed for educational institutions. The purpose of this project is to automate the assessment evaluation process, reduce human bias in grading, and provide detailed academic performance analysis for both students and faculty members.
+
+The system allows students to upload assessment files in PDF format, while faculty members can manage assessments, monitor class performance, and view generated reports. Artificial intelligence is used to evaluate assessments and generate performance reports automatically.
+
+This project mainly focuses on database design, academic workflow management, assessment tracking, enrollment management, and report generation within a university environment.
+
+Features
+User authentication and management
+Student and faculty management
+Department and program management
+Batch, semester, session, and section handling
+Course and teaching assignment management
+Student enrollment management
+Assessment creation and management
+Student submission handling
+AI-based evaluation processing
+Student performance reports
+Class performance reports
+Historical academic record preservation
+Activity logging and monitoring
+System Modules
+User Management
+
+Manages user accounts, authentication, and role-based access for students and faculty members.
+
+Academic Management
+
+Handles departments, programs, batches, semesters, sessions, sections, and course structures.
+
+Enrollment Management
+
+Maintains student enrollment history, repeat-course handling, and course registration workflows.
+
+Assessment Management
+
+Allows faculty members to create quizzes, assignments, and assessment records.
+
+Submission & Evaluation
+
+Stores student submissions and AI-generated evaluation results including marks, percentages, and feedback.
+
+Report Generation
+
+Generates:
+
+Student assessment reports
+Class performance reports
+AI-generated evaluation summaries
+Technologies Used
+Technology	Purpose
+MySQL	Database Management System
+MySQL Workbench	ERD and database design
+SQL	Database querying and management
+HTML/CSS/JavaScript	Frontend development
+GitHub	Version control and collaboration
+AI Tools	Automated assessment evaluation
+Database Design Highlights
+
+The database system is designed using:
+
+ERD/EERD modeling
+Normalization techniques
+Supertype/Subtype relationships
+Associative entities
+Proper cardinalities and participation constraints
+Main Entities
+User
+Student
+Faculty
+Department
+Program
+Batch
+Session
+Semester
+Section
+Course
+Teacher_Assignment
+Enrollment
+Assessment
+Submission
+Evaluation
+Business Objectives
+Reduce bias in academic assessment
+Automate evaluation workflows
+Improve academic data management
+Maintain historical academic records
+Support scalable university workflows
+Generate automated performance reports
+Repository Structure
+├── ERD/
+├── Documentation/
+├── SQL Scripts/
+├── Reports/
+├── Images/
+└── README.md
+Future Improvements
+Full AI integration for answer checking
+Web-based dashboard
+Real-time analytics
+Notification system
+Role-based authorization
+Cloud database deployment
+Team Members
+Name	Role
+Abdul Rehman	Database Design & Backend
+Ahmad Ali	Documentation & System Design
+Junaid Gondal	Academic Workflow & ERD Design
+License
+
+This project is developed for academic and educational purposes only.
