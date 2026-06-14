@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Dashboard</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-wrapper">
+
+    <aside class="sidebar">
+        <h4>Assessment System</h4>
+        <a href="{{ url_for('student.student_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('auth.logout') }}" class="logout-link">Logout</a>
+    </aside>
+
+    <main class="dashboard-content">
+
+        <div class="admin-hero">
+            <div>
+                <p class="hero-small">Student Dashboard</p>
+                <h1>{{ student.first_name }} {{ student.last_name }}</h1>
+                <p class="hero-text">
+                    View current session courses, assessment portals, submissions, marks and reports.
+                </p>
+            </div>
+
+            <div class="hero-badge">
+                <span>Current Session</span>
+                {% if current_session %}
+                <strong>{{ current_session.session_name }} {{ current_session.academic_year }}</strong>
+                {% else %}
+                <strong>No Session</strong>
+                {% endif %}
+            </div>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} mt-3">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <div class="dashboard-grid mt-4">
+
+            <div class="stat-card stat-blue">
+                <div class="stat-icon">📚</div>
+                <div>
+                    <p>Current Courses</p>
+                    <h2>{{ total_courses }}</h2>
+                </div>
+            </div>
+
+            <div class="stat-card stat-purple">
+                <div class="stat-icon">🟢</div>
+                <div>
+                    <p>Open Portals</p>
+                    <h2>{{ total_open_portals }}</h2>
+                </div>
+            </div>
+
+            <div class="stat-card stat-orange">
+                <div class="stat-icon">📤</div>
+                <div>
+                    <p>My Submissions</p>
+                    <h2>{{ total_submissions }}</h2>
+                </div>
+            </div>
+
+            <div class="stat-card stat-green">
+                <div class="stat-icon">📊</div>
+                <div>
+                    <p>Evaluated</p>
+                    <h2>{{ total_evaluated }}</h2>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="content-box mt-4">
+            <h5 class="mb-3">My Current Session Courses</h5>
+
+            <div class="row">
+                {% for course in courses %}
+                <div class="col-md-4 mb-3">
+                    <div class="faculty-course-card">
+                        <h6>{{ course.course_code }} - {{ course.course_title }}</h6>
+                        <p>Faculty: {{ course.faculty_first_name }} {{ course.faculty_last_name }}</p>
+                        <p>Section {{ course.section_name }} | Semester {{ course.semester_no }}</p>
+                        <p>Credit Hours: {{ course.credit_hours }}</p>
+                        <p>Assessments: {{ course.total_assessments or 0 }}</p>
+                        <p>Open Portals: {{ course.open_portals or 0 }}</p>
+
+                        <a href="{{ url_for('student.student_course_detail', registered_course_id=course.registered_course_id) }}"
+                           class="btn btn-sm btn-primary">
+                            Open Course
+                        </a>
+                    </div>
+                </div>
+                {% else %}
+                <p class="text-muted">No current session courses found.</p>
+                {% endfor %}
+            </div>
+        </div>
+
+    </main>
+
+</div>
+
+</body>
+</html>

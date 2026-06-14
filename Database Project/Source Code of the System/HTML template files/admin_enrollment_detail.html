@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Enrollment Detail</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+<body class="dashboard-body">
+
+<div class="dashboard-wrapper">
+    <aside class="sidebar">
+        <h4>Assessment System</h4>
+        <a href="{{ url_for('admin.admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('admin.students') }}">Students</a>
+        <a href="{{ url_for('admin.faculty') }}">Faculty</a>
+        <a href="{{ url_for('admin.courses') }}">Courses</a>
+        <a href="{{ url_for('admin.enrollments') }}">Enrollments</a>
+        <a href="{{ url_for('admin.teacher_assignments') }}">Teacher Assignments</a>
+        <a href="{{ url_for('auth.logout') }}" class="logout-link">Logout</a>
+    </aside>
+
+    <main class="dashboard-content">
+        <div class="topbar">
+            <h5>Enrollment Detail</h5>
+            <span>{{ enrollment.registration_no }}</span>
+        </div>
+
+        <div class="content-box mt-4">
+            <h5 class="mb-3">Student Information</h5>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <strong>Name:</strong><br>
+                    {{ enrollment.first_name }} {{ enrollment.last_name }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Registration No:</strong><br>
+                    {{ enrollment.registration_no }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Email:</strong><br>
+                    {{ enrollment.email }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Phone:</strong><br>
+                    {{ enrollment.phone_no }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Gender:</strong><br>
+                    {{ enrollment.gender }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Account Status:</strong><br>
+                    {{ enrollment.account_status }}
+                </div>
+            </div>
+
+            <hr>
+
+            <h5 class="mb-3">Academic Enrollment</h5>
+
+            <div class="row">
+                <div class="col-md-4 mb-3">
+                    <strong>Department:</strong><br>
+                    {{ enrollment.department_name }} ({{ enrollment.department_code }})
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Program:</strong><br>
+                    {{ enrollment.program_name }} ({{ enrollment.program_code }})
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Batch:</strong><br>
+                    {{ enrollment.batch_name }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Section:</strong><br>
+                    {{ enrollment.section_name }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Session:</strong><br>
+                    {{ enrollment.session_name }} {{ enrollment.academic_year }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Semester:</strong><br>
+                    Semester {{ enrollment.semester_no }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Enrollment Status:</strong><br>
+                    {{ enrollment.enrollment_status }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Repeat:</strong><br>
+                    {{ enrollment.is_repeat }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>Start Date:</strong><br>
+                    {{ enrollment.enrollment_start_date }}
+                </div>
+
+                <div class="col-md-4 mb-3">
+                    <strong>End Date:</strong><br>
+                    {{ enrollment.enrollment_end_date }}
+                </div>
+            </div>
+        </div>
+
+        <div class="content-box mt-4">
+            <h5 class="mb-3">Registered Courses</h5>
+
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover align-middle">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>#</th>
+                            <th>Course Code</th>
+                            <th>Course Title</th>
+                            <th>Credit Hours</th>
+                            <th>Teacher</th>
+                            <th>Registration Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        {% for course in registered_courses %}
+                        <tr>
+                            <td>{{ loop.index }}</td>
+                            <td>{{ course.course_code }}</td>
+                            <td>{{ course.course_title }}</td>
+                            <td>{{ course.credit_hours }}</td>
+                            <td>{{ course.teacher_first_name }} {{ course.teacher_last_name }}</td>
+                            <td>{{ course.registration_status }}</td>
+                        </tr>
+                        {% else %}
+                        <tr>
+                            <td colspan="6" class="text-center">No course registered for this enrollment.</td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+
+            <a href="{{ url_for('admin.enrollments') }}" class="btn btn-secondary mt-3">Back to Enrollments</a>
+        </div>
+    </main>
+</div>
+
+</body>
+</html>

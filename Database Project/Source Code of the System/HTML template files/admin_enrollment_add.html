@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Add Enrollment</title>
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="{{ url_for('static', filename='css/styles.css') }}" rel="stylesheet">
+</head>
+
+<body class="dashboard-body">
+
+<div class="dashboard-wrapper">
+
+    <aside class="sidebar">
+        <h4>Assessment System</h4>
+        <a href="{{ url_for('admin.admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('admin.students') }}">Students</a>
+        <a href="{{ url_for('admin.faculty') }}">Faculty</a>
+        <a href="{{ url_for('admin.courses') }}">Courses</a>
+        <a href="{{ url_for('admin.enrollments') }}">Enrollments</a>
+        <a href="{{ url_for('admin.teacher_assignments') }}">Teacher Assignments</a>
+        <a href="{{ url_for('auth.logout') }}" class="logout-link">Logout</a>
+    </aside>
+
+    <main class="dashboard-content">
+
+        <div class="topbar">
+            <h5>New Enrollment</h5>
+            <span>Admin Panel</span>
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <div class="alert alert-{{ category }} mt-3">{{ message }}</div>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+
+        <form method="POST" id="enrollmentForm">
+
+            <input type="hidden" name="student_id" id="student_id">
+            <input type="hidden" name="section_id" id="section_id">
+            <input type="hidden" name="session_id" id="session_id">
+            <input type="hidden" name="semester_id" id="semester_id">
+
+            <div class="content-box mt-4">
+                <h5 class="mb-3">Student Lookup</h5>
+
+                <div class="row">
+                    <div class="col-md-4 mb-3">
+                        <label>Student Registration No</label>
+                        <input
+                            type="text"
+                            id="registration_no"
+                            class="form-control"
+                            placeholder="NUM-BSCS-2024-01"
+                            autocomplete="off"
+                            required
+                        >
+                    </div>
+
+                    <div class="col-md-2 mb-3 d-flex align-items-end">
+                        <button type="button" class="btn btn-dark w-100" onclick="findStudent()">
+                            Find Student
+                        </button>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Student Name</label>
+                        <input type="text" id="student_name" class="form-control readonly-field" readonly>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Department</label>
+                        <input type="text" id="student_department" class="form-control readonly-field" readonly>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Program</label>
+                        <input type="text" id="student_program" class="form-control readonly-field" readonly>
+                    </div>
+
+                    <div class="col-md-4 mb-3">
+                        <label>Batch</label>
+                        <input type="text" id="student_batch" class="form-control readonly-field" readonly>
+                    </div>
+                </div>
+
+                <div id="studentMessage" class="mt-2"></div>
+            </div>
+
+            <div class="content-box mt-4">
+                <h5 class="mb-3">Enrollment Information</h5>
+
+                <div class="row">
+
+                    <div class="col-md-6 mb-3">
+                        <label>Section</label>
+                        <input
+                            type="text"
+                            id="section_input"
+                            class="form-control"
+                            list="section_list"
+                            placeholder="First find student, then type or select section"
+                            required
+                        >
+
+                        <datalist id="section_list"></datalist>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Academic Session</label>
+                        <input
+                            type="text"
+                            id="session_input"
+                            class="form-control"
+                            list="session_list"
+                            placeholder="Type or select session"
+                            required
+                        >
+
+                        <datalist id="session_list">
+                            {% for session in sessions %}
+                            <option
+                                value="{{ session.session_name }} {{ session.academic_year }}"
+                                data-id="{{ session.session_id }}">
+                            {% endfor %}
+                        </datalist>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Semester</label>
+                        <input
+                            type="text"
+                            id="semester_input"
+                            class="form-control"
+                            list="semester_list"
+                            placeholder="Type or select semester"
+                            required
+                        >
+
+                        <datalist id="semester_list">
+                            {% for semester in semesters %}
+                            <option
+                                value="Semester {{ semester.semester_no }}"
+                                data-id="{{ semester.semester_id }}">
+                            {% endfor %}
+                        </datalist>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Is Repeat?</label>
+                        <select name="is_repeat" class="form-select" required>
+                            <option value="No">No</option>
+                            <option value="Yes">Yes</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Enrollment Status</label>
+                        <select name="enrollment_status" class="form-select" required>
+                            <option value="Currently Enrolled">Currently Enrolled</option>
+                            <option value="Completed">Completed</option>
+                            <option value="Dropped">Dropped</option>
+                            <option value="Withdrawn">Withdrawn</option>
+                        </select>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Enrollment Start Date</label>
+                        <input type="date" name="enrollment_start_date" class="form-control" required>
+                    </div>
+
+                    <div class="col-md-6 mb-3">
+                        <label>Enrollment End Date</label>
+                        <input type="date" name="enrollment_end_date" class="form-control">
+                    </div>
+                </div>
+
+                <button type="button" class="btn btn-dark" onclick="loadCourses()">
+                    Next: Show Assigned Courses
+                </button>
+
+                <a href="{{ url_for('admin.enrollments') }}" class="btn btn-secondary">
+                    Cancel
+                </a>
+
+                <div id="courseMessage" class="mt-3"></div>
+            </div>
+
+            <div class="content-box mt-4" id="coursesBox" style="display: none;">
+                <h5 class="mb-3">Assigned Courses</h5>
+
+                <p class="text-muted">
+                    Only courses assigned to the selected section and semester are shown here.
+                </p>
+
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover align-middle">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Select</th>
+                                <th>Course Code</th>
+                                <th>Course Title</th>
+                                <th>Credit Hours</th>
+                                <th>Teacher</th>
+                            </tr>
+                        </thead>
+
+                        <tbody id="coursesTableBody"></tbody>
+                    </table>
+                </div>
+
+                <button type="submit" class="btn btn-primary">
+                    Save Enrollment
+                </button>
+            </div>
+
+        </form>
+
+    </main>
+
+</div>
+
+<script>
+    document.getElementById("registration_no").addEventListener("keydown", function(event) {
+        if (event.key === "Enter") {
+            event.preventDefault();
+            findStudent();
+        }
+    });
+
+    function showMessage(elementId, message, type) {
+        document.getElementById(elementId).innerHTML =
+            `<div class="alert alert-${type}">${message}</div>`;
+    }
+
+    function clearMessage(elementId) {
+        document.getElementById(elementId).innerHTML = "";
+    }
+
+    function clearStudentData() {
+        document.getElementById("student_id").value = "";
+        document.getElementById("student_name").value = "";
+        document.getElementById("student_department").value = "";
+        document.getElementById("student_program").value = "";
+        document.getElementById("student_batch").value = "";
+
+        document.getElementById("section_input").value = "";
+        document.getElementById("section_id").value = "";
+        document.getElementById("section_list").innerHTML = "";
+
+        document.getElementById("coursesBox").style.display = "none";
+        document.getElementById("coursesTableBody").innerHTML = "";
+        clearMessage("courseMessage");
+    }
+
+    function findStudent() {
+        let registrationNo = document.getElementById("registration_no").value.trim();
+
+        clearStudentData();
+
+        if (registrationNo === "") {
+            showMessage("studentMessage", "Please enter student registration number.", "warning");
+            return;
+        }
+
+        fetch(`/admin/api/student-by-registration?registration_no=${encodeURIComponent(registrationNo)}`)
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    showMessage("studentMessage", data.message, "danger");
+                    return;
+                }
+
+                let student = data.student;
+
+                document.getElementById("student_id").value = student.student_id;
+                document.getElementById("student_name").value = student.first_name + " " + student.last_name;
+                document.getElementById("student_department").value = student.department_name;
+                document.getElementById("student_program").value = student.program_name;
+                document.getElementById("student_batch").value = student.batch_name;
+
+                let sectionOptions = "";
+
+                data.sections.forEach(section => {
+                    sectionOptions += `
+                        <option
+                            value="${section.batch_name} - ${section.program_name} - Section ${section.section_name}"
+                            data-id="${section.section_id}">
+                    `;
+                });
+
+                document.getElementById("section_list").innerHTML = sectionOptions;
+
+                showMessage(
+                    "studentMessage",
+                    "Student found successfully. Now select section, session, and semester.",
+                    "success"
+                );
+            })
+            .catch(error => {
+                showMessage("studentMessage", "Error finding student.", "danger");
+            });
+    }
+
+    function setHiddenIdFromDatalist(inputId, datalistId, hiddenId) {
+        let inputValue = document.getElementById(inputId).value.trim();
+        let options = document.getElementById(datalistId).options;
+
+        document.getElementById(hiddenId).value = "";
+
+        for (let i = 0; i < options.length; i++) {
+            if (options[i].value === inputValue) {
+                document.getElementById(hiddenId).value = options[i].dataset.id;
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+    function loadCourses() {
+        let studentId = document.getElementById("student_id").value;
+
+        let validSection = setHiddenIdFromDatalist("section_input", "section_list", "section_id");
+        let validSession = setHiddenIdFromDatalist("session_input", "session_list", "session_id");
+        let validSemester = setHiddenIdFromDatalist("semester_input", "semester_list", "semester_id");
+
+        let sectionId = document.getElementById("section_id").value;
+        let semesterId = document.getElementById("semester_id").value;
+
+        document.getElementById("coursesBox").style.display = "none";
+        document.getElementById("coursesTableBody").innerHTML = "";
+
+        if (!studentId) {
+            showMessage("courseMessage", "Please find a valid student first.", "warning");
+            return;
+        }
+
+        if (!validSection) {
+            showMessage("courseMessage", "Please select a valid section from the list.", "warning");
+            return;
+        }
+
+        if (!validSession) {
+            showMessage("courseMessage", "Please select a valid academic session from the list.", "warning");
+            return;
+        }
+
+        if (!validSemester) {
+            showMessage("courseMessage", "Please select a valid semester from the list.", "warning");
+            return;
+        }
+
+        fetch(`/admin/api/enrollment-courses?student_id=${studentId}&section_id=${sectionId}&semester_id=${semesterId}`)
+            .then(response => response.json())
+            .then(data => {
+                if (!data.success) {
+                    showMessage("courseMessage", data.message, "danger");
+                    return;
+                }
+
+                let rows = "";
+
+                data.courses.forEach(course => {
+                    rows += `
+                        <tr>
+                            <td>
+                                <input
+                                    type="checkbox"
+                                    name="teacher_assignment_ids"
+                                    value="${course.teacher_assignment_id}"
+                                >
+                            </td>
+                            <td>${course.course_code}</td>
+                            <td>${course.course_title}</td>
+                            <td>${course.credit_hours}</td>
+                            <td>${course.teacher_first_name} ${course.teacher_last_name}</td>
+                        </tr>
+                    `;
+                });
+
+                document.getElementById("coursesTableBody").innerHTML = rows;
+                document.getElementById("coursesBox").style.display = "block";
+                showMessage("courseMessage", "Assigned courses loaded successfully.", "success");
+            })
+            .catch(error => {
+                showMessage("courseMessage", "Error loading assigned courses.", "danger");
+            });
+    }
+
+    document.getElementById("enrollmentForm").addEventListener("submit", function(event) {
+        setHiddenIdFromDatalist("section_input", "section_list", "section_id");
+        setHiddenIdFromDatalist("session_input", "session_list", "session_id");
+        setHiddenIdFromDatalist("semester_input", "semester_list", "semester_id");
+
+        let selectedCourses = document.querySelectorAll("input[name='teacher_assignment_ids']:checked");
+
+        if (!document.getElementById("student_id").value) {
+            event.preventDefault();
+            showMessage("courseMessage", "Please find a valid student first.", "warning");
+            return;
+        }
+
+        if (!document.getElementById("section_id").value || !document.getElementById("session_id").value || !document.getElementById("semester_id").value) {
+            event.preventDefault();
+            showMessage("courseMessage", "Please select valid section, session, and semester.", "warning");
+            return;
+        }
+
+        if (selectedCourses.length === 0) {
+            event.preventDefault();
+            showMessage("courseMessage", "Please select at least one course.", "warning");
+        }
+    });
+</script>
+
+</body>
+</html>
