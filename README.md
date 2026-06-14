@@ -24,6 +24,72 @@ This project is developed as part of the **Software Engineering course** and is 
 
 ---
 
+## Software Engineering Work
+
+This project follows a proper Software Engineering process. The work includes both documentation and implementation.
+
+Main Software Engineering activities include:
+
+- Requirement gathering and analysis
+- Software Requirement Specification
+- Functional requirements
+- Non-functional requirements
+- Use case identification
+- System diagrams
+- UI/UX prototype design
+- Database design
+- Implementation
+- Testing
+- Documentation
+
+---
+
+## SRS and Diagrams
+
+The project documentation includes the following Software Engineering artifacts:
+
+- Software Requirement Specification
+- Use Case Diagram
+- Activity Diagram
+- Sequence Diagram
+- Class Diagram
+- Entity Relationship Diagram
+- Enhanced Entity Relationship Diagram
+- Relational Schema
+- Figma UI Prototype
+
+These artifacts help explain the system requirements, user interaction, database structure, and implementation plan.
+
+---
+
+
+### Project Planning Context
+
+During the initial Software Engineering planning phase, the project idea focused on AI-based fair assessment. In the current implementation phase, the system focuses on database-backed academic assessment management and prepares the structure for future AI integration.
+
+---
+
+## Database Design Summary
+
+The system uses a normalized MySQL database to manage academic assessment records. The database is designed according to university workflow and supports students, faculty, departments, programs, batches, sections, sessions, courses, enrollments, registered courses, assessments, submissions, and evaluations.
+
+The database design avoids unnecessary redundancy. For example, student section and semester history are stored through enrollment records instead of directly storing current semester or section in the student table.
+
+Important database points:
+
+- `users` stores common login and profile information.
+- `student` and `faculty` store role-specific data.
+- `batch_program` connects batches with programs.
+- `enrollment` stores student academic history.
+- `registered_course` stores the courses selected in an enrollment.
+- `teacher_assignment` connects faculty, course, section, and semester.
+- `assessment` stores session-based assessment portals.
+- `submission` stores student uploads.
+- `evaluation` stores marks, feedback, percentage, and report metadata.
+
+The database is normalized up to **Third Normal Form (3NF)**.
+
+---
 ## Key Features
 
 ### Admin Features
@@ -87,10 +153,6 @@ The system uses a **MySQL relational database** designed according to real unive
 * `submission`
 * `evaluation`
 * `user_phone`
-* `attendance`
-* `result`
-* `campus`
-* `room`
 
 ---
 
@@ -247,25 +309,7 @@ It includes:
 
 ---
 
-## Views
 
-Views are used to simplify repeated admin queries and reporting operations.
-
-### Main Views
-
-* `v_admin_dashboard_counts`
-* `v_recent_enrollments`
-* `v_recent_teacher_assignments`
-* `v_admin_students`
-* `v_admin_faculty`
-* `v_admin_courses`
-* `v_admin_teacher_assignments`
-* `v_admin_enrollments`
-* `v_admin_enrollment_registered_courses`
-
-These views help display dashboard counts, student records, faculty records, course records, teacher assignments, enrollments, and registered course details without writing long joins repeatedly in the backend.
-
----
 
 ## Stored Procedures
 
@@ -279,12 +323,6 @@ Stored procedures are used for controlled insertion, update, and deletion operat
 * `sp_add_faculty`
 * `sp_update_faculty`
 * `sp_delete_faculty_safe`
-* `sp_add_course`
-* `sp_delete_course_safe`
-* `sp_add_teacher_assignment`
-* `sp_delete_teacher_assignment_safe`
-* `sp_add_enrollment`
-* `sp_add_registered_course`
 
 These procedures help keep database operations consistent and prevent invalid data from being inserted or deleted.
 
@@ -300,8 +338,6 @@ Functions are used for repeated validation checks.
 * `fn_registration_exists`
 * `fn_course_code_exists`
 * `fn_section_available_seats`
-* `fn_current_session_id`
-* `fn_student_already_enrolled`
 
 These functions help check duplicate emails, duplicate registration numbers, duplicate course codes, available section seats, current academic session, and duplicate active enrollments.
 
@@ -316,8 +352,7 @@ Triggers are used to enforce database-level rules automatically.
 * `trg_prevent_submission_when_portal_closed`
 * `trg_prevent_submission_update_when_portal_closed`
 * `trg_calculate_evaluation_percentage_insert`
-* `trg_calculate_evaluation_percentage_update`
-* `trg_prevent_duplicate_active_enrollment`
+
 
 These triggers prevent submission when an assessment portal is closed, prevent re-upload after portal closure, calculate evaluation percentage automatically, and block duplicate active enrollments.
 
@@ -347,7 +382,7 @@ Fair and Un biased System/
 │
 ├── app.py
 ├── db.py
-│
+├── css/
 ├── routes/
 │   ├── auth_routes.py
 │   ├── admin_routes.py
@@ -363,11 +398,6 @@ Fair and Un biased System/
 │   ├── faculty.html
 │   ├── student_dashboard.html
 │   └── other system pages
-│
-├── static/
-│   ├── css/
-│   ├── js/
-│   └── uploads/
 │
 ├── dbDDL_final_clean.sql
 ├── dbDML_final_clean.sql
@@ -400,34 +430,6 @@ python app.py
 
 ```text
 http://127.0.0.1:5000/
-```
-
----
-
-## Login Pages
-
-### Main Page
-
-```text
-http://127.0.0.1:5000/
-```
-
-### Admin Login
-
-```text
-http://127.0.0.1:5000/admin/login
-```
-
-### Faculty Login
-
-```text
-http://127.0.0.1:5000/faculty/login
-```
-
-### Student Login
-
-```text
-http://127.0.0.1:5000/student/login
 ```
 
 ---
