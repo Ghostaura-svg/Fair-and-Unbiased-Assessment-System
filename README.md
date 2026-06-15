@@ -156,61 +156,7 @@ The system uses a **MySQL relational database** designed according to real unive
 
 ---
 
-## Important Database Relationships
 
-### User Specialization
-
-The system uses a common `users` table for authentication and profile information.
-
-* One user can be a student.
-* One user can be a faculty member.
-* Admin users are also stored in the `users` table.
-
-```text
-users
- ├── student
- └── faculty
-```
-
-### Academic Structure
-
-Departments offer programs and courses. Batches are connected with programs through the `batch_program` table.
-
-```text
-department → program
-department → course
-batch + program → batch_program
-batch_program → section
-batch_program → student
-```
-
-### Enrollment and Registered Courses
-
-Student enrollment is stored separately from registered courses. This helps preserve academic history and avoids repeating multiple course columns inside the enrollment table.
-
-```text
-student → enrollment → registered_course → teacher_assignment
-```
-
-### Teacher Assignment
-
-A teacher assignment connects one faculty member with one course, semester, and section.
-
-```text
-faculty + course + semester + section → teacher_assignment
-```
-
-### Assessment and Submission Flow
-
-Assessments are created by faculty for a specific teacher assignment and academic session. Submissions are linked through `registered_course`, not directly through student or enrollment, so the system knows the exact course registration and teacher assignment.
-
-```text
-teacher_assignment + academic_session → assessment
-assessment + registered_course → submission
-submission → evaluation
-```
-
----
 
 ## Database Normalization
 
@@ -343,20 +289,6 @@ These functions help check duplicate emails, duplicate registration numbers, dup
 
 ---
 
-## Triggers
-
-Triggers are used to enforce database-level rules automatically.
-
-### Main Triggers
-
-* `trg_prevent_submission_when_portal_closed`
-* `trg_prevent_submission_update_when_portal_closed`
-* `trg_calculate_evaluation_percentage_insert`
-
-
-These triggers prevent submission when an assessment portal is closed, prevent re-upload after portal closure, calculate evaluation percentage automatically, and block duplicate active enrollments.
-
----
 
 ## Technology Stack
 
@@ -375,36 +307,6 @@ This project is part of a continuous **Software Engineering** course project. Ea
 
 ---
 
-## Project Structure
-
-```text
-Fair and Un biased System/
-│
-├── app.py
-├── db.py
-├── css/
-├── routes/
-│   ├── auth_routes.py
-│   ├── admin_routes.py
-│   ├── faculty_routes.py
-│   └── student_routes.py
-│
-├── templates/
-│   ├── home.html
-│   ├── admin_login.html
-│   ├── faculty_login.html
-│   ├── student_login.html
-│   ├── admindashboard.html
-│   ├── faculty.html
-│   ├── student_dashboard.html
-│   └── other system pages
-│
-├── dbDDL_final_clean.sql
-├── dbDML_final_clean.sql
-└── dbRoutines_final.sql
-```
-
----
 
 ## How to Run the Project
 
