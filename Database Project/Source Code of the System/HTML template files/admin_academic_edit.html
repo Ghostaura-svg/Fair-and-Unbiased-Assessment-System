@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+
+    {% if edit_type == "department" %}
+        <title>Update Department</title>
+    {% elif edit_type == "program" %}
+        <title>Update Program</title>
+    {% elif edit_type == "section" %}
+        <title>Update Section</title>
+    {% endif %}
+
+    <style>
+        * {
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            margin: 0;
+            background: #f4f6f9;
+            color: #001f3f;
+        }
+
+        .sidebar {
+            width: 270px;
+            height: 100vh;
+            background: #082b52;
+            color: white;
+            position: fixed;
+            left: 0;
+            top: 0;
+            padding: 28px 18px;
+        }
+
+        .sidebar h2 {
+            margin: 0 0 35px 0;
+            font-size: 26px;
+            color: white;
+        }
+
+        .sidebar a {
+            display: block;
+            color: white;
+            text-decoration: none;
+            padding: 13px 12px;
+            margin-bottom: 12px;
+            border-radius: 8px;
+            font-size: 16px;
+        }
+
+        .sidebar a:hover,
+        .sidebar a.active {
+            background: rgba(255, 255, 255, 0.12);
+        }
+
+        .logout-btn {
+            background: #e63248 !important;
+            margin-top: 38px;
+            text-align: left;
+            font-weight: bold;
+        }
+
+        .main-content {
+            margin-left: 270px;
+            padding: 26px;
+        }
+
+        .topbar {
+            background: white;
+            border-radius: 14px;
+            padding: 20px 28px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.04);
+        }
+
+        .topbar span {
+            font-size: 20px;
+            color: #001f3f;
+        }
+
+        .page-title-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 22px;
+        }
+
+        .page-title-row h1 {
+            font-size: 36px;
+            margin: 0;
+            color: #003366;
+        }
+
+        .card {
+            background: white;
+            border-radius: 14px;
+            padding: 26px;
+            margin-bottom: 26px;
+            box-shadow: 0 3px 14px rgba(0,0,0,0.05);
+            max-width: 900px;
+        }
+
+        .form-group {
+            margin-bottom: 18px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-size: 16px;
+            color: #001f3f;
+        }
+
+        .form-group input,
+        .form-group select {
+            width: 100%;
+            padding: 11px 12px;
+            border: 1px solid #d7dce3;
+            border-radius: 6px;
+            font-size: 16px;
+            background: white;
+        }
+
+        .btn {
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 16px;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #0d6efd;
+            color: white;
+        }
+
+        .btn-secondary {
+            background: #6c757d;
+            color: white;
+        }
+
+        .button-row {
+            display: flex;
+            gap: 10px;
+            margin-top: 20px;
+        }
+
+        .flash-area {
+            margin-bottom: 18px;
+        }
+
+        .flash-message {
+            padding: 12px 16px;
+            border-radius: 6px;
+            margin-bottom: 10px;
+            font-size: 15px;
+        }
+
+        .success {
+            background: #d1e7dd;
+            color: #0f5132;
+        }
+
+        .warning {
+            background: #fff3cd;
+            color: #664d03;
+        }
+
+        .danger {
+            background: #f8d7da;
+            color: #842029;
+        }
+
+        @media (max-width: 800px) {
+            .sidebar {
+                position: relative;
+                width: 100%;
+                height: auto;
+            }
+
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="sidebar">
+        <h2>Assessment System</h2>
+
+        <a href="{{ url_for('admin.admin_dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('admin.students') }}">Students</a>
+        <a href="{{ url_for('admin.faculty') }}">Faculty</a>
+        <a href="{{ url_for('admin.courses') }}">Courses</a>
+        <a href="{{ url_for('admin.enrollments') }}">Enrollments</a>
+        <a href="{{ url_for('admin.teacher_assignments') }}">Teacher Assignments</a>
+        <a href="{{ url_for('admin.academic_setup') }}" class="active">Academic Setup</a>
+
+        <a href="{{ url_for('auth.logout') }}" class="logout-btn">Logout</a>
+    </div>
+
+    <div class="main-content">
+
+        <div class="topbar">
+            <span>Academic Setup</span>
+            <span>Admin Panel</span>
+        </div>
+
+        <div class="page-title-row">
+            {% if edit_type == "department" %}
+                <h1>Update Department</h1>
+            {% elif edit_type == "program" %}
+                <h1>Update Program</h1>
+            {% elif edit_type == "section" %}
+                <h1>Update Section</h1>
+            {% endif %}
+        </div>
+
+        <div class="flash-area">
+            {% with messages = get_flashed_messages(with_categories=true) %}
+                {% if messages %}
+                    {% for category, message in messages %}
+                        <div class="flash-message {{ category }}">{{ message }}</div>
+                    {% endfor %}
+                {% endif %}
+            {% endwith %}
+        </div>
+
+        <div class="card">
+
+            {% if edit_type == "department" %}
+
+                <form method="POST" action="{{ url_for('admin.update_department', department_id=record.department_id) }}">
+                    <div class="form-group">
+                        <label>Department Name</label>
+                        <input type="text" name="department_name" value="{{ record.department_name }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Department Code</label>
+                        <input type="text" name="department_code" value="{{ record.department_code }}" required>
+                    </div>
+
+                    <div class="button-row">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="{{ url_for('admin.academic_setup') }}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+
+            {% elif edit_type == "program" %}
+
+                <form method="POST" action="{{ url_for('admin.update_program', program_id=record.program_id) }}">
+                    <div class="form-group">
+                        <label>Department</label>
+                        <select name="department_id" required>
+                            {% for department in departments %}
+                                <option value="{{ department.department_id }}"
+                                    {% if department.department_id == record.department_id %}selected{% endif %}>
+                                    {{ department.department_name }} ({{ department.department_code }})
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Program Name</label>
+                        <input type="text" name="program_name" value="{{ record.program_name }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Program Code</label>
+                        <input type="text" name="program_code" value="{{ record.program_code }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Degree Level</label>
+                        <input type="text" name="degree_level" value="{{ record.degree_level }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Total Semesters</label>
+                        <input type="number" name="total_semester" min="1" value="{{ record.total_semester }}" required>
+                    </div>
+
+                    <div class="button-row">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="{{ url_for('admin.academic_setup') }}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+
+            {% elif edit_type == "section" %}
+
+                <form method="POST" action="{{ url_for('admin.update_section', section_id=record.section_id) }}">
+                    <div class="form-group">
+                        <label>Batch Program</label>
+                        <select name="batch_program_id" required>
+                            {% for bp in batch_programs %}
+                                <option value="{{ bp.batch_program_id }}"
+                                    {% if bp.batch_program_id == record.batch_program_id %}selected{% endif %}>
+                                    {{ bp.batch_name }} - {{ bp.program_name }} ({{ bp.program_code }}) - {{ bp.department_name }}
+                                </option>
+                            {% endfor %}
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Section Name</label>
+                        <input type="text" name="section_name" value="{{ record.section_name }}" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label>Capacity</label>
+                        <input type="number" name="capacity" min="1" value="{{ record.capacity }}" required>
+                    </div>
+
+                    <div class="button-row">
+                        <button type="submit" class="btn btn-primary">Save Changes</button>
+                        <a href="{{ url_for('admin.academic_setup') }}" class="btn btn-secondary">Cancel</a>
+                    </div>
+                </form>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+</html>
